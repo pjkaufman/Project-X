@@ -58,7 +58,13 @@ class MX_Controller
 	{
 		return CI::$APP->$class;
 	}
-
+	/**
+	 * @name get_essentials
+	 * @author Peter Kaufman
+	 *
+	 * this function loads a header, navigation bar and footer
+	 *
+	 **/
 	public function get_essentials(){
 		$this->load->view('header');
 		$this->load->view('nav-bar');
