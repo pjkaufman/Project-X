@@ -22,8 +22,7 @@ class Home extends MX_Controller {
 	{
 		$this->load->library(array('session'));
 		$this->load->helper(array('url'));
-    $this->load->view('header');
-		$this->load->view('nav-bar');
+    $this->get_essentials();
 		$this->load->view('home');
 	}
 }
