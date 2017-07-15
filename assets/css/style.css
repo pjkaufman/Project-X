@@ -7,3 +7,16 @@
   margin-right:25%;
   width: 50%;
 }
+.clock {
+  height: 50px;
+  width: auto;
+  line-height: 50px;
+  padding: 0 50px;
+  color: #222;
+  text-align: center;
+  text-shadow: 0 0 3px #fff;
+}
+.glyphicon {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}

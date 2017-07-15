@@ -25,5 +25,8 @@
     <script src="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/js/'.$_SESSION['cmod'].'.js';?>"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/css/style.css';?>"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="<?php echo base_url() . 'assets/js/objects.js';?>"></script>
+    <script src="<?php echo base_url() . 'assets/js/default.js';?>"></script>
+    <link href="<?php echo base_url() . 'assets/css/style.css';?>" rel="stylesheet">
   </head>
 <body>
