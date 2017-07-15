@@ -1,3 +1,3 @@
 $( document ).ready(function() {
-  new clock(1000);
+  new cpu_chart();
 });

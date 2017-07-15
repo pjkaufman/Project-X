@@ -20,7 +20,7 @@
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/d3.v3.js"></script>
     <link rel="icon" type="image/jpeg" href=<?php echo base_url().'assets/images/favicon.jpg';?>>
     <script src="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/js/'.$_SESSION['cmod'].'.js';?>"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/css/style.css';?>"/>
