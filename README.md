@@ -1,14 +1,13 @@
-#Project X
+# **Project X**
 
-######**Author: Peter Kaufman**
-
-##**Dependencies:**
+###### **Author: Peter Kaufman**
+## **Dependencies:**
 
 * bootstrap
 * jquery
 * moment
 
-##**After Installation:**
+## **After Installation:**
 
 Open /application/config/database.php and edit with your database settings
 On your database, open a SQL terminal paste this and execute:
