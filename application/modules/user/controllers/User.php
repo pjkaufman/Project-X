@@ -59,7 +59,6 @@ class User extends MX_Controller {
 			// validation not ok, send validation errors to the view
 			$this->load->view('header');
 			$this->load->view('register/register', $data);
-			$this->load->view('footer');
 
 		} else {
 
@@ -81,7 +80,6 @@ class User extends MX_Controller {
 				// send error to the view
 				$this->load->view('header');
 				$this->load->view('register/register', $data);
-				$this->load->view('footer');
 
 			}
 
@@ -146,7 +144,6 @@ class User extends MX_Controller {
 				// send error to the view
 				$this->load->view('header');
 				$this->load->view('login/login', $data);
-				$this->load->view('footer');
 
 			}
 
