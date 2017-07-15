@@ -6,6 +6,7 @@
 * bootstrap
 * jquery
 * moment
+* d3
 
 ## **After Installation:**
 
