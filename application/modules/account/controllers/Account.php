@@ -26,14 +26,13 @@ class Account extends MX_Controller {
 		*/
 	 public function __construct() {
 
-		 parent::__construct();
+		  parent::__construct();
 		  $this->load->helper(array('form', 'url'));
-		 $this->load->library(array('session'));
-		 $this->load->model('account_model');
+		  $this->load->model('account_model');
+		  $this->set_module($this);
 	 }
 
-	public function index()
-	{
+	public function index(){
     $this->get_essentials();
     $this->load->view('account', array('error' => ' ' ));
 	}

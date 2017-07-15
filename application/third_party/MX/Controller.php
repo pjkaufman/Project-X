@@ -59,15 +59,24 @@ class MX_Controller
 		return CI::$APP->$class;
 	}
 	/**
-	 * @name get_essentials
+	 * get_essentials
 	 * @author Peter Kaufman
 	 *
-	 * this function loads a header, navigation bar and footer
 	 *
 	 **/
 	public function get_essentials(){
 		$this->load->view('header');
 		$this->load->view('nav-bar');
-		$this->load->view('footer');
+	}
+
+	/**
+	 * set_module sets the name of the current module in the SESSION global variable
+	 * @author Peter Kaufman
+	 * @param $class is a MX_Controller oci_fetch_object
+	 *
+	 **/
+	public function set_module($class){
+		$_SESSION['cmod'] =  strtolower(get_class($class));
+		return;
 	}
 }

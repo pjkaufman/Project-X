@@ -22,7 +22,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 		<script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="icon" type="image/jpeg" href=<?php echo base_url().'assets/images/favicon.jpg';?>>
-    <script src="<?php echo base_url() . 'assets/accounts/js/account.js';?>"></script>
+    <script src="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/js/'.$_SESSION['cmod'].'.js';?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/css/style.css';?>"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 <body>

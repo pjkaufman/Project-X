@@ -27,9 +27,8 @@ class Home extends MX_Controller {
 	 public function __construct() {
 
 		 parent::__construct();
-		 $this->load->library(array('session'));
 		 $this->load->helper(array('url'));
-
+		 $this->set_module($this);
 	 }
 
 	public function index()
