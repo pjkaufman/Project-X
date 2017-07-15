@@ -22,9 +22,9 @@
               <li role="separator" class="divider"></li>
               <li><a href="
                 <?php
-                  echo base_url() . 'index.php/user/login'
+                  echo base_url() . 'index.php/user/logout'
                 ?>"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-          </ul>
+          </out
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

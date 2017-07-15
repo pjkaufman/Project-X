@@ -12,6 +12,7 @@ class User_model extends CI_Model {
 	 * __construct function.
 	 *
 	 * @access public
+	 * @author Hedii
 	 * @return void
 	 */
 	public function __construct() {
@@ -22,9 +23,10 @@ class User_model extends CI_Model {
 	}
 
 	/**
-	 * create_user function.
+	 * create_user adds a new user to the users database
 	 *
 	 * @access public
+	 * @author Hedii
 	 * @param mixed $username
 	 * @param mixed $email
 	 * @param mixed $password
@@ -44,9 +46,10 @@ class User_model extends CI_Model {
 	}
 
 	/**
-	 * resolve_user_login function.
+	 * resolve_user_login compares the password of the user to determine if the credentials match
 	 *
 	 * @access public
+	 * @author Hedii
 	 * @param mixed $username
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
@@ -63,9 +66,10 @@ class User_model extends CI_Model {
 	}
 
 	/**
-	 * get_user_id_from_username function.
+	 * get_user_id_from_username gets the user's id from username
 	 *
 	 * @access public
+	 * @author Hedii
 	 * @param mixed $username
 	 * @return int the user id
 	 */
@@ -80,9 +84,10 @@ class User_model extends CI_Model {
 	}
 
 	/**
-	 * get_user function.
+	 * get_user gets the user's information based on $user_id
 	 *
 	 * @access public
+	 * @author Hedii
 	 * @param mixed $user_id
 	 * @return object the user object
 	 */
@@ -95,29 +100,52 @@ class User_model extends CI_Model {
 	}
 
 	/**
-	 * hash_password function.
+	 * hash_password hashes the password
 	 *
 	 * @access private
+	 * @author Hedii
 	 * @param mixed $password
 	 * @return string|bool could be a string on success, or bool false on failure
 	 */
-	private function hash_password($password) {
+	private function hash_password($password){
 
 		return password_hash($password, PASSWORD_BCRYPT);
 
 	}
 
 	/**
-	 * verify_password_hash function.
+	 * verify_password_hash verfies that $password will be hashed
 	 *
 	 * @access private
+	 * @author Hedii
 	 * @param mixed $password
 	 * @param mixed $hash
 	 * @return bool
 	 */
-	private function verify_password_hash($password, $hash) {
+	private function verify_password_hash($password, $hash){
 
 		return password_verify($password, $hash);
+
+	}
+
+	/**
+	 * update_login_data updates the last_login and num_logins in the users table
+	 *
+	 * @access public
+	 * @author Peter Kaufman
+	 *
+	 */
+	public function update_login_data(){
+
+		$date = new DateTime();
+		$data = array(
+				'num_logins'		=> $_SESSION['num_logins'] + 1,
+				'last_login'		=> $date->format('Y-m-d H:i:s')
+		);
+		$this->db->where('username', $_SESSION['username']);
+		$this->db->update('users',  $data);
+		$_SESSION['last_login']		= (string)$data['last_login'];
+		$_SESSION['num_logins']		= (int)$data['num_logins'];
 
 	}
 }

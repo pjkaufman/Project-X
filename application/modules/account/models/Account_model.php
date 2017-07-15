@@ -25,10 +25,12 @@ class Account_model extends CI_Model {
 	 * @access public
    * @author Peter Kaufman
    * @param avatar is an array
-	 * @return void
-	*/
+	 *
+	 */
 	public function update_avatar($avatar){
+
     $this->db->where('username', $_SESSION['username']);
     $this->db->update('users',  $avatar);
+		
 	}
 }

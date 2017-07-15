@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends MX_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	 /**
 		* __construct function.
 		*
@@ -29,8 +14,15 @@ class Home extends MX_Controller {
 		 parent::__construct();
 		 $this->load->helper(array('url'));
 		 $this->set_module($this);
+		 $this->logged_in();
 	 }
 
+	 /**
+	 * index function calls get_essentials and loads the home view
+	 * @access public
+	 * @author Peter Kaufman
+	 * @example base_url() . 'index.php/home'
+	 */
 	public function index()
 	{
     $this->get_essentials();
