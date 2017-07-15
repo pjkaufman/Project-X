@@ -20,7 +20,7 @@
 				<div class="page-header">
 					<h1>Login</h1>
 				</div>
-				<?= form_open(base_url()."index.php/home") ?>
+				<?= form_open() ?>
 					<div style="margin: 2px;" >
 						<div class="form-group">
 							<label for="username">Username</label>

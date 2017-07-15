@@ -71,9 +71,7 @@ class User extends MX_Controller {
 			if ($this->user_model->create_user($username, $email, $password)) {
 
 				// user creation ok
-				$this->load->view('header');
-				$this->load->view('register/register_success', $data);
-				$this->load->view('footer');
+				header("location: " . base_url() . 'index.php/user/login');
 
 			} else {
 
@@ -134,11 +132,11 @@ class User extends MX_Controller {
 				$_SESSION['logged_in']    = (bool)true;
 				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
 				$_SESSION['is_admin']     = (bool)$user->is_admin;
+				$_SESSION['email']			  = (string)$user->email;
+				$_SESSION['avatar']				= (string)$user->avatar;
 
 				// user login ok
-				$this->load->view('header');
-				$this->load->view('login/login_success', $data);
-				$this->load->view('footer');
+				header("location: " . base_url() . 'index.php/home');
 
 			} else {
 

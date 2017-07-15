@@ -19,7 +19,7 @@
 			<div class="page-header">
 				<h1>Register</h1>
 			</div>
-			<?= form_open(base_url().'index.php/user/login') ?>
+			<?= form_open() ?>
 				<div class="form-group">
 					<label for="username">Username</label>
 					<input type="text" class="form-control" id="username" name="username" placeholder="Enter a username">

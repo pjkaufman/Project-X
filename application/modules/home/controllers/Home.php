@@ -18,10 +18,22 @@ class Home extends MX_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 /**
+		* __construct function.
+		*
+		* @access public
+		* @return void
+		*/
+	 public function __construct() {
+
+		 parent::__construct();
+		 $this->load->library(array('session'));
+		 $this->load->helper(array('url'));
+
+	 }
+
 	public function index()
 	{
-		$this->load->library(array('session'));
-		$this->load->helper(array('url'));
     $this->get_essentials();
 		$this->load->view('home');
 	}
