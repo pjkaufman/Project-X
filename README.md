@@ -1,12 +1,13 @@
-Project X
-Author: Peter Kaufman
-Dependencies:
--bootstrap
--jquery
--moment
-Use:
+#Project X
+######**Author: Peter Kaufman**
+##**Dependencies:**
+* bootstrap
+* jquery
+* moment
+##**After Installation:**
 Open /application/config/database.php and edit with your database settings
 On your database, open a SQL terminal paste this and execute:
+```SQL
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL DEFAULT '',
@@ -18,6 +19,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_admin` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_confirmed` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  'last_login' datetime DEFAULT NULL,
+  'num_logins' int DEFAULT '0',
   PRIMARY KEY (`id`)
 );
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
@@ -28,3 +31,4 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
         PRIMARY KEY (id),
         KEY `ci_sessions_timestamp` (`timestamp`)
 );
+```
