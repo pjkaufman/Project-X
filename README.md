@@ -36,4 +36,12 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
         PRIMARY KEY (id),
         KEY `ci_sessions_timestamp` (`timestamp`)
 );
+CREATE TABLE IF NOT EXISTS logins(
+`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`username` varchar(255) NOT NULL DEFAULT '',
+`datestamp` date,
+`login` datetime DEFAULT NULL,
+`logout` datetime DEFAULT NULL,
+PRIMARY KEY (`id`)
+);
 ```

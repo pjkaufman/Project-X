@@ -34,11 +34,13 @@ class User_model extends CI_Model {
 	 */
 	public function create_user($username, $email, $password) {
 
+		$date->setTimezone(new DateTimeZone('America/New_York'));
+		$date->add(new DateInterval('PT21H'));
 		$data = array(
 			'username'   => $username,
 			'email'      => $email,
 			'password'   => $this->hash_password($password),
-			'created_at' => date('Y-m-j H:i:s'),
+			'created_at' => $date->format('Y-m-j H:i:s'),
 		);
 
 		return $this->db->insert('users', $data);
@@ -138,6 +140,8 @@ class User_model extends CI_Model {
 	public function update_login_data(){
 
 		$date = new DateTime();
+		$date->setTimezone(new DateTimeZone('America/New_York'));
+		$date->add(new DateInterval('PT21H'));
 		$data = array(
 				'num_logins'		=> $_SESSION['num_logins'] + 1,
 				'last_login'		=> $date->format('Y-m-d H:i:s')
@@ -146,6 +150,26 @@ class User_model extends CI_Model {
 		$this->db->update('users',  $data);
 		$_SESSION['last_login']		= (string)$data['last_login'];
 		$_SESSION['num_logins']		= (int)$data['num_logins'];
+	}
+	/**
+	 * update_logout_data updates the logins table
+	 *
+	 * @access public
+	 * @author Peter Kaufman
+	 *
+	 */
+	public function update_logout_data(){
+
+		$date = new DateTime();
+		$date->setTimezone(new DateTimeZone('America/New_York'));
+		$date->add(new DateInterval('PT21H'));
+		$data = array(
+			'username'   => $_SESSION['username'],
+			'login'  		 => $_SESSION['last_login'],
+			'logout'		 => $date->format('Y-m-d H:i:s'),
+			'datestamp'  => $date->format('Y-m-d')
+		);
+		$this->db->insert('logins', $data);
 
 	}
 }

@@ -92,6 +92,7 @@ class User extends MX_Controller {
 				$_SESSION['is_admin']     = (bool)$user->is_admin;
 				$_SESSION['email']			  = (string)$user->email;
 				$_SESSION['avatar']				= (string)$user->avatar;
+				$_SESSION['num_logins']		= (int)$user->num_logins;
 				// user login ok
 				$this->user_model->update_login_data();
 				header("location: " . base_url() . 'index.php/home');
@@ -114,6 +115,7 @@ class User extends MX_Controller {
 	public function logout() {
 		// create the data object
 		$data = new stdClass();
+		$this->user_model->update_logout_data();
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 			// remove session datas
 			foreach ($_SESSION as $key => $value) {
