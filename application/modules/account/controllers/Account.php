@@ -26,6 +26,7 @@ class Account extends MX_Controller {
  	 * @example base_url() . 'index.php/account'
  	 */
 	public function index(){
+		$this->update_title('Profile');
     $this->get_essentials();
     $this->load->view('account', array('error' => ' ' ));
 	}

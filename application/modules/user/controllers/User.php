@@ -26,6 +26,7 @@ class User extends MX_Controller {
 	public function register() {
 
 		// create the data object
+		$this->update_title('Register');
 		$data = new stdClass();
 		// load form helper and validation library
 		$this->load->helper('form');
@@ -65,6 +66,7 @@ class User extends MX_Controller {
 	 */
 	public function login(){
 		// create the data object
+		$this->update_title('Login');
 		$data = new stdClass();
 		// load form helper and validation library
 		$this->load->helper('form');
@@ -76,7 +78,6 @@ class User extends MX_Controller {
 			// validation not ok, send validation errors to the view
 			$this->load->view('header');
 			$this->load->view('login/login');
-			$this->load->view('footer');
 		} else {
 			// set variables from the form
 			$username = $this->input->post('username');

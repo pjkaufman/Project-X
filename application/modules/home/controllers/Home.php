@@ -25,6 +25,7 @@ class Home extends MX_Controller {
 	 */
 	public function index()
 	{
+		$this->update_title('Home');
     $this->get_essentials();
 		$this->load->view('home');
 	}

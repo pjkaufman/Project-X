@@ -74,20 +74,31 @@ class MX_Controller
 	 * @author Peter Kaufman
 	 * @param $class is a MX_Controller oci_fetch_object
 	 *
-	 **/
+	 */
 	public function set_module($class){
 		$_SESSION['cmod'] =  strtolower(get_class($class));
 	}
+
 	/**
-	 * set_module sets the name of the current module in the SESSION global variable
+	 * logged_in checks to make sure the user is logged in, if not, the user is redirected to the login page
 	 * @author Peter Kaufman
-	 * @param $class is a MX_Controller oci_fetch_object
 	 *
-	 **/
+	 */
 	public function logged_in(){
 		if(!(isset($_SESSION['username'])))
 		{
 			header('Location:' . base_url() . 'index.php/user/login');
 		}
+	}
+
+	/**
+	 * update_title sets the title for the current page in the SESSION global variable
+	 * @author Peter Kaufman
+	 *
+	 */
+	public function update_title($title){
+
+		$_SESSION['title'] = $title;
+
 	}
 }
