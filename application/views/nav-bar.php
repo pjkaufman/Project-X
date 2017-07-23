@@ -12,6 +12,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<?php echo base_url().'index.php/home'; ?>"><span class="glyphicon glyphicon-home"></span> Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="<?php echo base_url().'index.php/logs'; ?>"><span class="glyphicon glyphicon-blackboard"></span> Logs </a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><div id="clock" class="clock">loading ...</div></li>

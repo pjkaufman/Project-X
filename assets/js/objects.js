@@ -138,3 +138,67 @@ var clock =function( $i ){
         // Start
         setInterval(update, 1000);
 };
+/**
+ * @author Rance Aaron
+ * @class Table
+ * @type object
+ * @version 1.5 Under Git control and Grunt task managers.
+ * @description Wrapper for {@link https://datatables.net DataTables}.
+ *  Table objects allow easy construction for data tables with connections
+ *  to the data sources.
+ *
+ */
+var Table = {
+    /**
+     *
+     * @function init
+     * @description Initializes the table object
+     * @memberOf Table
+     * @param {string} name Name used as dom element id
+     * @param {string} url Url to data source
+     * @param {array} columns Column names
+     * @returns void
+     */
+    init: function(name,url,columns) {
+        this.col_array = columns;
+        this.name = name;
+        this.url = url;
+        this.createTable();
+
+        $('table#'+this.name).DataTable( {
+                serverSide: true,
+                ajax: url,
+                columns: this.getColumns()
+        });
+
+        var dTable = $('table#'+this.name).DataTable();
+        for(var i in this.col_array){
+            $(dTable.column(i).header()).text(this.col_array[i]);
+        }
+
+    },
+    /**
+     * @function createTable
+     * @description Creates a dom element for the table object
+     * @memberOf Table
+     * @returns void
+     */
+    createTable: function() {
+        $("div#table ").append('<table id="'+this.name+'" class="display" cellspacing="0" width="100%" />');
+    },
+    /**
+     * @function getColumns
+     * @description Return an array of column data
+     * @memberOf Table
+     * @returns {Array|Table.getColumns.c}
+     */
+    getColumns: function(){
+        var c = [];
+
+        for(var k in this.col_array){
+            c.push({ "data": this.col_array[k]});
+        }
+
+        return c;
+    }
+};
