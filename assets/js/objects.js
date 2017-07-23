@@ -1,9 +1,9 @@
-/*
- * clock
- * @author Peter Kaufman
- * @param $i is the interval at which the clock updates in milliseconds
- * credit to Gabriel https://codepen.io/gab/pen/KLhgr
- */
+/**
+  * clock
+  * @author Peter Kaufman
+  * @param $i is the interval at which the clock updates in milliseconds
+  * credit to Gabriel https://codepen.io/gab/pen/KLhgr
+  */
 var clock =function( $i ){
   function update() {
     $('#clock').html(moment().format('D MMMM, YYYY, H:mm:ss'));
@@ -13,12 +13,12 @@ var clock =function( $i ){
 
 };
 
-/*
- * cpu_chart
- * @author Peter Kaufman
- * @param $i is the interval at which the clock updates in milliseconds
- * credit to CarterTsai https://codepen.io/CarterTsai/pen/fFDAx
- */
+/**
+  * cpu_chart
+  * @author Peter Kaufman
+  * @param $i is the interval at which the clock updates in milliseconds
+  * credit to CarterTsai https://codepen.io/CarterTsai/pen/fFDAx
+  */
  var cpu_chart = function(){
    var timeoutId = 0;
    var data = [];
@@ -139,7 +139,7 @@ var clock =function( $i ){
         setInterval(update, 1000);
 };
 /**
- * @author Rance Aaron
+ * @author Rance Aaron & Peter Kaufman
  * @class Table
  * @type object
  * @version 1.5 Under Git control and Grunt task managers.
@@ -167,6 +167,7 @@ var Table = {
 
         $('table#'+this.name).DataTable( {
                 serverSide: true,
+                sDom: '<"top"lp>t<"bottom"i><"clear">',
                 ajax: url,
                 columns: this.getColumns()
         });
@@ -200,5 +201,9 @@ var Table = {
         }
 
         return c;
+    },
+    update_table: function(change){
+      console.log(change);
+      this.fnPageChange(change,true);
     }
 };

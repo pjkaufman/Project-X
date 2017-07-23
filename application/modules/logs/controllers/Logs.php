@@ -40,6 +40,8 @@ class Logs extends MX_Controller {
     */
  public function get_data(){
     $data = $this->logs_model->get_logs();
-    exit(json_encode(['data'=> $data]));
+    $ajax_info = '{"recordsTotal": ' . sizeOf($data) . ', "recordsFiltered": ' . sizeOf($data) . ',';
+    $response = json_encode(['data' => $data]);
+    exit($ajax_info . substr($response, 1));
  }
 }
