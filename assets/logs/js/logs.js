@@ -14,12 +14,18 @@ $(document).ready(function() {
         'end': window.DatePicker.daterange.end,
       };
       $.post(location + '/update_sql_data',data);
-      $('table').DataTable().destroy(false);
-      $('tbody').empty();
-      setTimeout(Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false),1000);
+      clearTable();
+      Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false);
     });
     $('button#clear').on('click', function(){
       $('div#drp').empty();
       new DatePicker(start_date, end_date, 0 );
+      $.post(location + '/update_sql_data',data);
+      clearTable();
+      Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false);
     });
 });
+function clearTable(){
+  $('table').DataTable().destroy(true);
+  $('tbody').empty();
+};
