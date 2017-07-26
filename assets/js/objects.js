@@ -1,148 +1,31 @@
 /**
-  * clock
   * @author Peter Kaufman
-  * @param $i is the interval at which the clock updates in milliseconds
-  * credit to Gabriel https://codepen.io/gab/pen/KLhgr
+  * @class Clock
+  * @type class
+  * @author Peter Kaufman
+  * @param i is the interval at which the clock updates in milliseconds
+  * @description Wrapper for {@link https://codepen.io/gab/pen/KLhgr}.
+  *  Clock objects allow easy construction of a clock, credit to Gabriel
+  * @returns void
   */
-var clock =function( $i ){
+var Clock = function( i ){
+  /**
+   * @function update
+   * @description Initializes the Clock object
+   * @memberOf Clock
+   * @returns void
+   */
   function update() {
     $('#clock').html(moment().format('D MMMM, YYYY, H:mm:ss'));
   }
 
-  setInterval(update, $i);
+  setInterval(update, i);
 
-};
-
-/**
-  * cpu_chart
-  * @author Peter Kaufman
-  * @param $i is the interval at which the clock updates in milliseconds
-  * credit to CarterTsai https://codepen.io/CarterTsai/pen/fFDAx
-  */
- var cpu_chart = function(){
-   var timeoutId = 0;
-   var data = [];
-
-   var margin = {top: 20, right: 20, bottom: 30, left: 50},
-      width = 300 - margin.left - margin.right,
-      height = 200 - margin.top - margin.bottom;
-
-      var parseDate = d3.time.format("%H:%M:%S").parse;
-
-      var xcenter =  width/2;
-
-      var x = d3.time.scale()
-      . range([0, width]);
-
-      var y = d3.scale.linear()
-      .range([height, 0]);
-
-      var xAxis = d3.svg.axis()
-      .scale(x)
-      .orient("bottom")
-      .tickFormat(d3.time.format("%S"));
-
-      var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left");
-
-      var line = d3.svg.line()
-      .x(function(d) { return x(d.creatTime);})
-      .y(function(d) { return y(d.cpuTime); });
-
-      // function
-
-      function myGetTime() {
-        var dd = new Date();
-        var hh = dd.getHours();
-        var mm = dd.getMinutes();
-        var ss = dd.getSeconds();
-        return hh + ":" + mm + ":" + ss;
-      }
-
-      function getRandomArbitrary(min, max) {
-        return Math.round (Math.random() * (max - min) + min) -1;
-      }
-
-      function getTime(data) {
-        if(data.length === 12) {
-          // when length of data equal 11 then pop data[0]
-          data.shift();
-        }
-        data.push({
-          "creatTime":  myGetTime(),
-          "cpuTime": getRandomArbitrary(0,101),
-        });
-      }
-
-      function update() {
-        getTime(data);
-        render();
-        timeoutId = setTimeout("update()", 1000);
-      }
-
-      function render() {
-
-        d3.select("svg")
-          .remove();
-
-          var svg = d3.select("body").append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom + 40)
-          .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-          data.forEach(function(d) {
-            if(typeof d.creatTime === "string") {
-              d.cpuTime = +d.cpuTime;
-              d.creatTime = parseDate(d.creatTime);
-            }
-
-          });
-
-          x.domain(d3.extent(data, function(d) { return d.creatTime; }));
-          y.domain(d3.extent(data, function(d) { return d.cpuTime; }));
-
-          svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + height + ")")
-          .style("text-anchor", "end")
-          .call(xAxis)
-          .append("text")
-          .attr("transform", "rotate(0)")
-          .attr("y", 40)
-          .attr("dx", xcenter)
-          .attr("font-size", "1.3em")
-          .style("text-anchor", "end")
-          .text("time(s)");
-
-          svg.append("g")
-          .attr("class", "y axis")
-          .attr("transform", "translate("+ height +",-180px)")
-          .style("text-anchor", "end")
-          .call(yAxis)
-          .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", -40)
-          .attr("dy", ".41em")
-          .attr("font-size", "1.3em")
-          .style("text-anchor", "end")
-          .text("CPU%");
-
-          svg.append("path")
-          .datum(data)
-          .attr("class", "line")
-          .attr("d", line);
-        }
-
-        // Start
-        setInterval(update, 1000);
 };
 /**
  * @author Rance Aaron & Peter Kaufman
  * @class Table
  * @type object
- * @version 1.5 Under Git control and Grunt task managers.
  * @description Wrapper for {@link https://datatables.net DataTables}.
  *  Table objects allow easy construction for data tables with connections
  *  to the data sources.
@@ -150,33 +33,36 @@ var clock =function( $i ){
  */
 var Table = {
     /**
-     *
      * @function init
      * @description Initializes the table object
      * @memberOf Table
      * @param {string} name Name used as dom element id
      * @param {string} url Url to data source
      * @param {array} columns Column names
+     * @param {boolean} server server determines if serverSide is to be used
      * @returns void
      */
-    init: function(name,url,columns) {
+    init: function(name,url,columns, server) {
         this.col_array = columns;
         this.name = name;
         this.url = url;
         this.createTable();
 
         $('table#'+this.name).DataTable( {
-                serverSide: true,
-                sDom: '<"top"lp>t<"bottom"i><"clear">',
+                serverSide: server,
+                dom: '<"top"lip>t<"bottom"><"clear">',
                 ajax: url,
-                columns: this.getColumns()
+                columns: this.getColumns(),
+                fnDrawCallback: function (oSettings) {
+                  $('div.dataTables_length label').attr('style','padding-top: 11px; margin-right: 20px;')
+                  $('div.dataTables_info').attr('style','clear:none;')
+                }
         });
 
         var dTable = $('table#'+this.name).DataTable();
         for(var i in this.col_array){
             $(dTable.column(i).header()).text(this.col_array[i]);
         }
-
     },
     /**
      * @function createTable
@@ -201,9 +87,92 @@ var Table = {
         }
 
         return c;
-    },
-    update_table: function(change){
-      console.log(change);
-      this.fnPageChange(change,true);
     }
 };
+/**
+* @class DatePicker
+* @example First include the following element into the markup HTML for a concrete element.  <div class="drp"></div>
+* @example Call the constructor in a javascript file.  var mydatepicker = new DatePicker(start, end, 0);
+* @param {string} start Start date
+* @param {string} end End date
+* @param {int} time Use 1 to enable time picker option
+* @returns {DatePicker}
+*/
+function DatePicker(start, end, time){
+  var tp;
+  if( time === 0 ){
+    tp = false;
+    var format = 'MM/DD/YYYY';
+  }else{
+    tp = true;
+    var t = {format: 'MM/DD/YYYY HH:mm:ss'};
+  }
+    this.start = moment(start).format("MM/DD/YYYY");
+    this.end = moment(end).format("MM/DD/YYYY");
+    this.markup = '<div style="position: relative; width: auto; height: 36px; margin-bottom: 10px;" class="rangecontainer">\n\
+                        <div style="position: absolute;top: 0px;bottom: 0px;display: block;left: 0px;right: 50%;padding-right: 20px;width: 50%;"><input style="height: 100%;display: block;" type="text" name="start" id="start" class="form-control" /></div>\n\
+                        <div style="position: absolute;top: 0px;bottom: 1px;display: block;left: 50%;z-index:+2;margin-left: -20px;width: 40px;text-align: center;background: linear-gradient(#eee,#ddd);border: solid #CCC 1px;border-left: 0px;border-right: 0px;height: 36px !important;"><i style="position:absolute;left:50%;margin-left:-7px;top:50%;margin-top: -7px;" class="glyphicon glyphicon-calendar"></i></div>\n\
+                        <div style="position: absolute;top: 0px;bottom: 0px;display: block;left: 50%;right: 0px;padding-left: 20px;width: 50%;"><input style="height: 100%;display: block;" type="text" name="end" id="end" class="form-control" /></div>\n\
+                   </div>';
+
+    $("div#drp").html(this.markup);
+
+    update = function(t){
+        if(t === 1){
+            var format = 'YYYY-MM-DD HH:mm:ss';
+        }else{
+            var format = 'YYYY-MM-DD';
+        }
+
+        window.DatePicker.daterange = {
+            start:moment($('.rangecontainer input#start').val()).format(format),
+            end:moment($('.rangecontainer input#end').val()).format(format),
+            diff:moment($('.rangecontainer input#end').val()).diff(moment($('.rangecontainer input#start').val()), 'days')
+        };
+    };
+
+    new Drp(this.start, time, 'start');
+    new Drp(this.end, time, 'end');
+
+    update(time);
+
+    $('div#drp .rangecontainer').on('change','input',function(e){
+        update(time);
+    });
+
+    /**
+    * @author Rance Aaron
+    * @class Drp
+    * @description Wrapper object for date range picker
+    * @type object
+    * @param {string} d date passed by constructor
+    * @param {int} type Type of output format and either datepicker or datetimepicker
+    * @param {string} se Start or End
+    */
+    function Drp(d, type, se){
+      if(type == 1){
+          this.time = true;
+          var t = {format: 'MM-DD-YYYY HH:mm:ss'};
+        }else{
+          this.time = false;
+          var t = {format: 'MM-DD-YYYY'};
+      }
+
+
+      $('div#drp .rangecontainer input#'+se).daterangepicker({
+              parentEl: "#drp",
+              singleDatePicker: true,
+              showDropdowns: false,
+              locale: t,
+              startDate: d,
+              timePicker: this.time,
+              autoApply: true,
+              autoUpdateInput: true,
+              maxDate: moment().format(t.format)
+          },
+          function(start, end, label){
+                  return start;
+          }
+      );
+     }
+  }

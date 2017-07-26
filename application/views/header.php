@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +22,6 @@
 		<script src="https://d3js.org/d3.v3.js"></script>
     <!----Datatables CDNs ---->
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
-    <script charset="utf8" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <link rel="icon" type="image/jpeg" href=<?php echo base_url().'assets/images/favicon.jpg';?>>
     <script src="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/js/'.$_SESSION['cmod'].'.js';?>"></script>

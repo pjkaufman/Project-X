@@ -35,7 +35,7 @@ class User_model extends CI_Model {
 	public function create_user($username, $email, $password) {
 
 		$date->setTimezone(new DateTimeZone('America/New_York'));
-		$date->add(new DateInterval('PT21H'));
+		$date->sub(new DateInterval('PT3H'));
 		$data = array(
 			'username'   => $username,
 			'email'      => $email,
@@ -141,7 +141,7 @@ class User_model extends CI_Model {
 
 		$date = new DateTime();
 		$date->setTimezone(new DateTimeZone('America/New_York'));
-		$date->add(new DateInterval('PT21H'));
+		$date->sub(new DateInterval('PT3H'));
 		$data = array(
 				'num_logins'		=> $_SESSION['num_logins'] + 1,
 				'last_login'		=> $date->format('Y-m-d H:i:s')
@@ -162,7 +162,7 @@ class User_model extends CI_Model {
 
 		$date = new DateTime();
 		$date->setTimezone(new DateTimeZone('America/New_York'));
-		$date->add(new DateInterval('PT21H'));
+		$date->sub(new DateInterval('PT3H'));
 		$data = array(
 			'username'   => $_SESSION['username'],
 			'login'  		 => $_SESSION['last_login'],

@@ -23,3 +23,11 @@
 .input-group-addon{
   top:0px;
 }
+.content{
+  position: absolute;
+  display: block;
+  top: 80px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+}
