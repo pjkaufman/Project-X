@@ -28,7 +28,7 @@ class Logs_model extends CI_Model {
    *
 	 */
 	public function get_logs(){
-    $sql = "Select `username` AS `Username`, `datestamp` AS `Date`,`login` AS `Login`, `logout` AS `Logout` FROM logins WHERE `datestamp` BETWEEN '" .  $_SESSION['sql']['start'] . "' AND '" .  $_SESSION['sql']['end'] . "'";
+    $sql = "Select username AS Username, datestamp AS Date, login AS Login, logout AS Logout FROM logins WHERE datestamp BETWEEN '" .  $_SESSION['sql']['start'] . "' AND '" .  $_SESSION['sql']['end'] . "'";
     $query = $this->db->query($sql);
     return $query->result();
 	}

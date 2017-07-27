@@ -98,7 +98,7 @@ class MX_Controller
 	 */
 	public function update_title($title){
 
-		$_SESSION['title'] = $title;
+		$_SESSION['title'] = 'Project X - ' . $title;
 
 	}
 }

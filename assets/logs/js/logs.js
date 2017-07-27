@@ -20,6 +20,10 @@ $(document).ready(function() {
     $('button#clear').on('click', function(){
       $('div#drp').empty();
       new DatePicker(start_date, end_date, 0 );
+      data ={
+        'start': window.DatePicker.daterange.start,
+        'end': window.DatePicker.daterange.end,
+      };
       $.post(location + '/update_sql_data',data);
       clearTable();
       Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false);
