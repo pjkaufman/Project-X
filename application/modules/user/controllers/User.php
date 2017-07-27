@@ -5,7 +5,6 @@ class User extends MX_Controller {
 
 	/**
 	 * __construct function.
-	 *
 	 * @access public
 	 * @return void
 	 */
@@ -18,7 +17,6 @@ class User extends MX_Controller {
 
 	/**
 	 * register function creates a user and redirect to login page
-	 *
 	 * @access public
 	 * @author Hedii & Peter Kaufman
 	 * @example base_url() . 'index.php/user/register'
@@ -59,7 +57,6 @@ class User extends MX_Controller {
 	}
 	/**
 	 * login takes in information from the login form, validates it, and redirects to the appropriate page
-	 *
 	 * @access public
 	 * @author Hedii & Peter Kaufman
 	 * @example base_url() . 'index.php/user/login'
@@ -108,7 +105,6 @@ class User extends MX_Controller {
 	}
 	/**
 	 * logout logs the user out and redirects to the login page
-	 *
 	 * @access public
 	 * @author Hedii & Peter Kaufman
 	 * @example base_url() . 'index.php/user/logout'

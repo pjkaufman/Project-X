@@ -16,7 +16,7 @@ class Logs extends MX_Controller {
 			$this->logged_in();
 	 }
    /**
-     *  index calls get_essentials and loads logs view
+     * index calls get_essentials and loads logs view
      * @access public
      * @author Peter Kaufman
      * @example base_url() . 'index.php/logs'
@@ -27,7 +27,7 @@ class Logs extends MX_Controller {
      $this->load->view('logs');
   }
   /**
-    *  get_data gets the data desired
+    * get_data gets the data desired
     * @access public
     * @author Peter Kaufman
     * @example base_url() . 'index.php/logs/get_data'
@@ -37,7 +37,7 @@ class Logs extends MX_Controller {
 		exit(json_encode(['data' => $data]));
  }
  /**
-	 *  update_sql_data updates the avialable sql data
+	 * update_sql_data updates the avialable sql data
 	 * @access public
 	 * @author Peter Kaufman
 	 * @example base_url() . 'index.php/logs/update_sql_data'

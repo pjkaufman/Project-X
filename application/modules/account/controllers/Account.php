@@ -2,10 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends MX_Controller {
-
 	 /**
 		* __construct function.
-		*
 		* @access public
 		* @return void
 		*/
@@ -17,10 +15,8 @@ class Account extends MX_Controller {
 		  $this->set_module($this);
 			$this->logged_in();
 	 }
-
 	 /**
- 	 *  index calls get_essentials and loads account view
- 	 *
+ 	 * index calls get_essentials and loads account view
  	 * @access public
 	 * @author Peter Kaufman
  	 * @example base_url() . 'index.php/account'
@@ -30,10 +26,8 @@ class Account extends MX_Controller {
     $this->get_essentials();
     $this->load->view('account', array('error' => ' ' ));
 	}
-
-	 /**
- 	 *  do_upload uploads a photo to assets/images/
- 	 *
+	/**
+ 	 * do_upload uploads a photo to assets/images/
  	 * @access public
 	 * @author Peter Kaufman
  	 * @example base_url() . 'index.php/account/do_upload'

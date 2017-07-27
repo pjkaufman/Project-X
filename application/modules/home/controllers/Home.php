@@ -2,10 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends MX_Controller {
-
 	 /**
 		* __construct function.
-		*
 		* @access public
 		* @return void
 		*/
@@ -16,7 +14,6 @@ class Home extends MX_Controller {
 		 $this->set_module($this);
 		 $this->logged_in();
 	 }
-
 	 /**
 	 * index function calls get_essentials and loads the home view
 	 * @access public

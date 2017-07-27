@@ -1,16 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 /**
- * User_model class.
- *
+ * Log_model class.
  * @extends CI_Model
  */
 class Logs_model extends CI_Model {
-
 	/**
 	 * __construct function.
-	 *
 	 * @access public
 	 * @return void
 	 */
@@ -18,14 +14,11 @@ class Logs_model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	}
-
   /**
 	 * function gets data from the logins table of the db
-	 *
 	 * @access public
    * @author Peter Kaufman
 	 * @return array full of login data
-   *
 	 */
 	public function get_logs(){
     $sql = "Select username AS Username, datestamp AS Date, login AS Login, logout AS Logout FROM logins WHERE datestamp BETWEEN '" .  $_SESSION['sql']['start'] . "' AND '" .  $_SESSION['sql']['end'] . "'";

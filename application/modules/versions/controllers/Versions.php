@@ -16,11 +16,11 @@ class Versions extends MX_Controller {
 		 $this->logged_in();
 	 }
 	 /**
-	 * index function calls get_essentials and loads the home view
-	 * @access public
-	 * @author Peter Kaufman
-	 * @example base_url() . 'index.php/config'
-	 */
+	  * index function calls get_essentials and loads the home view
+	  * @access public
+	  * @author Peter Kaufman
+	  * @example base_url() . 'index.php/config'
+	  */
 	public function index()
 	{
 		$this->update_title('Version Info');

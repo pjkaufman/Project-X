@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Config extends MX_Controller {
 	 /**
 		* __construct function.
-		*
 		* @access public
 		* @return void
 		*/
