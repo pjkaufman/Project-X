@@ -7,7 +7,7 @@ $( document ).ready(function() {
       var markup;
        for(row in resp){
 
-         markup = '<div class="row" style="margin:10px;"><label class="col-sm-4" style="width:30%;">' + firstLetterToUpper(resp[row]['name']) + ' Version: </label>' +
+         markup = '<div class="row" style="margin:10px;"><label class="col-sm-4">' + firstLetterToUpper(resp[row]['name']) + ' Version: </label>' +
                   '<input class="col-sm-6" id="' + resp[row]['name'] + '" type="text"  placeholder="' + resp[row]['version'] + '">' +
                   '<div class="col-sm-1"></div><button class="col-sm-1" id="update_' + resp[row]['name'] + '" style="width:auto;">Update</button></div>';
 
