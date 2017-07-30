@@ -28,3 +28,7 @@
   margin-right: 5px;
   margin-left: 5px;
 }
+.glyphicon.normal-right-spinner {
+    -webkit-animation: glyphicon-spin-r 2s infinite linear;
+    animation: glyphicon-spin-r 2s infinite linear;
+}

@@ -71,18 +71,6 @@ function modalShow(markup, id) {
 		$('div#modal-container').empty();
 		$('div.modal-backdrop').remove();
 	});
-
-	if (id == 'remove') {
-		console.log('remove');
-		$('div.modal-footer button#' + firstLetterToUpper(id)).click(function() {
-			console.log('remove');
-		});
-	} else {
-		console.log('add');
-		$('div.btn-group button#' + firstLetterToUpper(id)).click(function() {
-			console.log('add');
-		});
-	}
 }
 
 function updateItem(name, version) {

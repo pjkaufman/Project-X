@@ -28,9 +28,9 @@
     <script charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <!----Regular Links ---->
     <link href="<?php echo base_url() . 'assets/css/style.css';?>" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/css/style.css';?>"/>
-    <link rel="icon" type="image/jpeg" href=<?php echo base_url().'assets/images/favicon.jpg';?>>
-    <script src="<?php echo base_url() . 'assets/'.$_SESSION['cmod'].'/js/'.$_SESSION['cmod'].'.js';?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/'.$_SESSION['cmod'].'.css';?>"/>
+    <link rel="icon" type="image/jpeg" href="<?php echo base_url() . 'assets/images/favicon.jpg';?>">
+    <script src="<?php echo base_url() . 'assets/js/' . $_SESSION['cmod'] . '.js';?>"></script>
     <script src="<?php echo base_url() . 'assets/js/objects.js';?>"></script>
     <script src="<?php echo base_url() . 'assets/js/default.js';?>"></script>
   </head>
