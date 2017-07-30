@@ -33,7 +33,7 @@ class Versions extends MX_Controller
      * @access public
      * @author Peter Kaufman
      * @example base_url() . 'index.php/get_version_data'
-     * @return json object
+     * @return void
      */
     public function get_version_data()
     {
@@ -52,5 +52,27 @@ class Versions extends MX_Controller
             $this->versions_model->update_version($_POST['name'], $_POST['version']);
         }
         exit();
+    }
+    /**
+     * update_version_table function calls to update_version to update version data
+     * @access public
+     * @author Peter Kaufman
+     * @example base_url() . 'index.php/update_version_table'
+     * @return void
+     */
+    public function update_version_table()
+    {
+      $data = array(
+        'name'  => $_POST['name'],
+        'version' => '',
+      );
+      if($_POST['id'] != '' && $_POST['name'] != ''){
+        if($_POST['id'] == 'add' && $_POST['version'] != ''){
+          $data['version'] = $_POST['version'];
+        }
+        $this->versions_model->update_version_table($_POST['id'], $data);
+      }
+
+      exit();
     }
 }
