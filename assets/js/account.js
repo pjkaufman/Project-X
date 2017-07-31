@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() {
 	$('div#account-info *').css('margin', '5px');
 	$('img#profile-pic').css('display', 'block');

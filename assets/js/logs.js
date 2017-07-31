@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() {
 	var start_date = moment().subtract(1, 'days').format('YYYY-MM-DD');
 	var end_date = moment().format('YYYY-MM-DD');
