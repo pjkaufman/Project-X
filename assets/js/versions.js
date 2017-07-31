@@ -49,19 +49,34 @@ $(document).ready(function() {
 });
 
 /**
- *
  * @author Peter Kaufman
  * @description firstLetterToUpper makes the first letter of the string upercase
  * @example firstLetterToUpper('car') results in Car
  * @function firstLetterToUpper
  * @access public
- * @param {[string]} str, the string to have its first letter capitalized
- * @return {[string]} the input string with an upercase first letter
+ * @param {string} str, the string to have its first letter capitalized
+ * @return {string} the input string with an upercase first letter
  */
 function firstLetterToUpper(str) {
 	return str.substring(0, 1).toUpperCase() + str.substring(1);
 }
 
+/**
+ * @author Peter Kaufman
+ * @description modalShow shows a modal based on which button has been clicked
+ *              it also adds the button listeners to add and remove the input data
+ * @example modalShow(
+ *          '<div class="modal fade blob" id="squarespaceModal" tabindex="-1"
+ *          role="dialog" aria-labelledby="modalLabel" aria-hidden="true">...Modal Content...</div>', 'blob' );
+ *          shows the modal with the desired content on the screen
+ * @function modalShow
+ * @access public
+ * @param {string} markup is the markup of the modal. Markup must include a div with the id modal-container,
+ *                   a div with the id of the id param, a button with an id of close, and another button with
+ *                   an id of either Add or Remove.
+ * @param {string} id is the id of the modal to show
+ * @return {null} void
+ */
 function modalShow(markup, id) {
 
 	var data;
@@ -98,6 +113,16 @@ function modalShow(markup, id) {
 	}
 }
 
+/**
+ * @author Peter Kaufman
+ * @description updateItem updates the plugin's or dependency's version
+ * @example updateItem('php','7.0.0'); updates the version of php to be 7.0.0
+ * @function updateItem
+ * @access public
+ * @param {string} name is the name of the version to update
+ * @param {string} version is the new version of the plugin or dependency
+ * @return {null} void
+ */
 function updateItem(name, version) {
 	var data = {
 		'name': name,
@@ -106,11 +131,29 @@ function updateItem(name, version) {
 	$.post(location + '/update_version', data);
 }
 
+/**
+ * @author Peter Kaufman
+ * @description removeModal removes any modal on the screen
+ * @example removeModal(); removes all modals from the screen
+ * @function removeModal
+ * @access public
+ * @return {null} void
+ */
 function removeModal() {
 	$('div#modal-container').empty();
 	$('div.modal-backdrop').remove();
 }
 
+/**
+ * @author Peter Kaufman
+ * @description updateTable determines whether to remove or add a record to the versions table
+ * @example updateTable( var data = ['id':'add'.'name':'blob', 'version':'2.0']); adds blob to the versions
+ *          table with 2.0 as its version
+ * @function updateTable
+ * @access public
+ * @param {array} data contains an id, name, and version
+ * @return {null} void
+ */
 function updateTable(data) {
 	$.post(location + '/update_version_table', data);
 	removeModal();
