@@ -5,7 +5,7 @@ $(document).ready(function() {
 		dataType: 'json',
 		success: function(resp) {
 			var markup;
-			for (row in resp) {
+			for (var row in resp) {
 
 				markup = '<div id="' + resp[row]['name'] + '" class="row" style="margin:10px;"><label class="col-sm-4">' + firstLetterToUpper(resp[row]['name']) + ' Version: </label>' +
 					'<input class="col-sm-6" id="' + resp[row]['name'] + '" type="text"  placeholder="' + resp[row]['version'] + '">' +

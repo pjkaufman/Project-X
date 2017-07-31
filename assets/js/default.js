@@ -1,3 +1,3 @@
-$( document ).ready(function() {
-  new Clock(1000);
+$(document).ready(function() {
+	new Clock(1000);
 });
