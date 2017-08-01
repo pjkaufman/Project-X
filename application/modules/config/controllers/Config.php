@@ -26,4 +26,34 @@ class Config extends MX_Controller {
     $this->get_essentials();
 		$this->load->view('config');
 	}
+	/**
+	* time_zones function returns a list of timezones
+	* @access public
+	* @author Peter Kaufman
+	* @example base_url() . 'index.php/config/time_zones'
+	*/
+ public function time_zones()
+ {
+	 $cities = array(
+		 "EST",
+		 "AST",
+		 "CST",
+		 "MST",
+		 "PDT",
+		 "HST",
+		 "HAST",
+		 "SST",
+		 "CVT",
+		 "SDT",
+		 "AKDT",
+		 "CHST",
+		 "GMT",
+	 );
+	 $time_zones = array();
+	 foreach($cities as $time_zone){
+		$time_zones[] = timezone_name_from_abbr($time_zone);
+	 }
+
+	 exit(json_encode($time_zones));
+ }
 }

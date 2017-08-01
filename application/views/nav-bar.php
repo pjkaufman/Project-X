@@ -35,7 +35,7 @@
             <span class="glyphicon glyphicon-user"></span><?php echo ' ' . $_SESSION['username']; ?> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url() .'index.php/account'; ?>"><span class="glyphicon glyphicon-eye-open"></span> View user</a></li>
+            <li><a href="<?php echo base_url() .'index.php/account'; ?>"><span class="glyphicon glyphicon-eye-open"></span> Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="<?php echo base_url() . 'index.php/user/logout'; ?>"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
           </ul>

@@ -7,8 +7,19 @@
               <div class="navbar-brand" style="color:#eee;margin-left:10px;">Configuration</div>
             </div>
           </div>
-          <div class="container">
-            <div id="config"></div>
+          <div class="container" style="margin:10px;">
+            <div class="col-sm-1"></div>
+            <div id="config" class="row time_zones">
+              <div class="col-sm-3">Time Zone:</div>
+              <div class="col-sm-4">
+                <select class="time_zone">
+                </select>
+              </div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-3">
+                <button id="time_zone" class="update" style="margin-left:20px;width:auto;">Update</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
