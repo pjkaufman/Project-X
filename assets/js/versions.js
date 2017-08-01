@@ -19,7 +19,6 @@ $(document).ready(function() {
 			});
 		},
 	});
-	/*************** Button Listeners ***************/
 	$('ul.nav.navbar-nav.navbar-right button').click(function() {
 		var markup;
 		if (this.id == 'remove') {
