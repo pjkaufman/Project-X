@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
   <div id="wrapper">
       <!-- Navigation from https://startbootstrap.com/template-overviews/sb-admin/ -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -9,7 +9,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?php echo base_url() .'index.php/home'; ?>">Project X</a>
+              <a class="navbar-brand" href="<?php echo base_url() . 'index.php/home'; ?>">Project X</a>
           </div>
           <!-- Top Menu Items -->
           <ul class="nav navbar-right top-nav">
@@ -18,7 +18,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo ' ' . $_SESSION['username'] . ' '; ?> <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                       <li>
-                          <a href="<?php echo base_url() .'index.php/account'; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+                          <a href="<?php echo base_url() . 'index.php/account'; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
                       </li>
                       <li class="divider"></li>
                       <li>
@@ -31,19 +31,19 @@
           <nav class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
                   <li class="active">
-                      <a href="<?php echo base_url() .'index.php/home'; ?>"><i class="fa fa-fw fa-home"></i> Home</a>
+                      <a href="<?php echo base_url() . 'index.php/home'; ?>"><i class="fa fa-fw fa-home"></i> Home</a>
                   </li>
                   <li>
                       <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-wrench"></i> Administartion<i class="fa fa-fw fa-caret-down"></i></a>
                       <ul id="demo" class="collapse">
                           <li>
-                              <a href="<?php echo base_url() .'index.php/config'; ?>"><i class="fa fa-fw fa-cog"></i> Configuration</a>
+                              <a href="<?php echo base_url() . 'index.php/config'; ?>"><i class="fa fa-fw fa-cog"></i> Configuration</a>
                           </li>
                           <li>
-                              <a href="<?php echo base_url() .'index.php/versions'; ?>"><i class="fa fa-fw fa-info-circle"></i> Version Info</a>
+                              <a href="<?php echo base_url() . 'index.php/versions'; ?>"><i class="fa fa-fw fa-info-circle"></i> Version Info</a>
                           </li>
                           <li>
-                              <a href="<?php echo base_url() .'index.php/logs'; ?>"><i class="fa fa-fw fa-file"></i> Logs</a>
+                              <a href="<?php echo base_url() . 'index.php/logs'; ?>"><i class="fa fa-fw fa-file"></i> Logs</a>
                           </li>
                       </ul>
                   </li>

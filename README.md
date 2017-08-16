@@ -1,4 +1,4 @@
-# **Project X**
+# **Project X** [![Repo Size](https://reposs.herokuapp.com/?path=pjkaufman/Project-X)](https://github.com/pjkaufman/Project-X)  [![Current Issues](https://img.shields.io/github/issues/pjkaufman/Project-X.svg)](https://github.com/pjkaufman/Project-X/issues)  [![License](https://img.shields.io/github/license/pjkaufman/Project-X.svg)](https://github.com/pjkaufman/Project-X/blob/master/LICENSE)
 
 ###### **Author: Peter Kaufman**
 ## **Dependencies:**

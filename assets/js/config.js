@@ -14,12 +14,13 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(resp) {
 				var markup;
+				markup = '<option id="default" value="' + timezone + '">' + timezone + '</option>';
 				for (var row in resp) {
-					markup = '<option id="' + row + '" value="' + resp[row] + '">' + resp[row] + '</option>';
-
-					$('select.time_zone').append(markup).select2();
-
+					if (resp[row] != timezone) {
+						markup += '<option id="' + row + '" value="' + resp[row] + '">' + resp[row] + '</option>';
+					}
 				};
+				$('select.time_zone').append(markup).select2();
 			},
 		});
 		$('div.col-sm-3 button#time_zone.update').on('click', function() {

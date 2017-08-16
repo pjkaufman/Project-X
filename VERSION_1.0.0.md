@@ -1,6 +1,8 @@
-### Added timezone functionality to the nav bar clock. Updating the config timezone updates the nav bar clock. (HEAD -> master)
+### Updated the README page. Added timezone functionality to the clock and got rid of the moment timezone bug by preventing get timezone from being called on the login or register page. (HEAD -> master)
 >Author: Peter Kaufman >Commiter: Peter Kaufman
-### Added several functions t all the controllers, added a config page with settings, and updated the navigation menu for the application. (master/master)
+### Added timezone functionality to the nav bar clock. Updating the config timezone updates the nav bar clock. (master/master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Added several functions t all the controllers, added a config page with settings, and updated the navigation menu for the application.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### The config page has been updated to include a timezone selector.
 >Author: Peter Kaufman >Commiter: Peter Kaufman

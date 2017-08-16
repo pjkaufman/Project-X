@@ -21,6 +21,7 @@ class Config_model extends CI_Model {
      * @param value the new value of the desired configuration setting
      */
     public function updateTimezone($value) {
+        $_SESSION['timezone'] = $value;
         $sql = "UPDATE `config` SET `value` = '" . $value . "' WHERE `name` = 'timezone'";
         $this->db->query($sql);
         exit();

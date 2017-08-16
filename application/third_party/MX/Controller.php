@@ -102,7 +102,7 @@ class MX_Controller {
         $sql = "SELECT `value` FROM `config` WHERE `name` = 'timezone';";
         $results = $this->db->query($sql)->result();
 
-        if ($this->db->affected_rows() != 0) {
+        if (is_array($results)) {
             $results = (array)array_shift($results);
             $_SESSION['timezone'] = $results['value'];
         } else {

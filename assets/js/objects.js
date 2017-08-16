@@ -17,7 +17,7 @@ var Clock = function(i, timezone) {
 	 * @returns void
 	 */
 	function update() {
-		$('#clock').html(moment().tz(timezone).format('D MMMM, YYYY, H:mm:ss'));
+		$('#clock').html(moment().tz(timezone).subtract(3, 'hours').format('D MMMM, YYYY, H:mm:ss'));
 	}
 
 	clockInterval = setInterval(update, i);
