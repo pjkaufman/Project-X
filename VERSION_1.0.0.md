@@ -1,6 +1,8 @@
-### Added several functions t all the controllers, added a config page with settings, and updated the navigation menu for the application. (HEAD -> master)
+### Added timezone functionality to the nav bar clock. Updating the config timezone updates the nav bar clock. (HEAD -> master)
 >Author: Peter Kaufman >Commiter: Peter Kaufman
-### The config page has been updated to include a timezone selector. (master/master)
+### Added several functions t all the controllers, added a config page with settings, and updated the navigation menu for the application. (master/master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### The config page has been updated to include a timezone selector.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated config js.
 >Author: Peter Kaufman >Commiter: Peter Kaufman

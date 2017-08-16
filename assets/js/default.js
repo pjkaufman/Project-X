@@ -1,4 +1,9 @@
 "use strict";
 $(document).ready(function() {
-	new Clock(1000);
+	$.ajax({
+		url: location + '/get_timezone',
+		success: function(resp) {
+			new Clock(1000, resp);
+		},
+	});
 });

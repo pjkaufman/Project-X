@@ -115,6 +115,6 @@ class MX_Controller {
      * @author Peter Kaufman
      */
     public function get_timezone() {
-        return $_SESSION['timezone'];
+        exit($_SESSION['timezone']);
     }
 }

@@ -1,15 +1,15 @@
-"use strict";
 /**
  * @author Peter Kaufman
  * @class Clock
  * @type class
  * @author Peter Kaufman
  * @param i is the interval at which the clock updates in milliseconds
+ * @param timezone is the default timezone (config table timezone)
  * @description Wrapper for {@link https://codepen.io/gab/pen/KLhgr}.
  *  Clock objects allow easy construction of a clock, credit to Gabriel
  * @returns void
  */
-var Clock = function(i) {
+var Clock = function(i, timezone) {
 	/**
 	 * @function update
 	 * @description Initializes the Clock object
@@ -17,10 +17,10 @@ var Clock = function(i) {
 	 * @returns void
 	 */
 	function update() {
-		$('#clock').html(moment().format('D MMMM, YYYY, H:mm:ss'));
+		$('#clock').html(moment().tz(timezone).format('D MMMM, YYYY, H:mm:ss'));
 	}
 
-	setInterval(update, i);
+	clockInterval = setInterval(update, i);
 
 };
 /**
@@ -30,7 +30,6 @@ var Clock = function(i) {
  * @description Wrapper for {@link https://datatables.net DataTables}.
  *  Table objects allow easy construction for data tables with connections
  *  to the data sources.
- *
  */
 var Table = {
 	/**
