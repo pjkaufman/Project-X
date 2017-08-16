@@ -1,6 +1,8 @@
-### The config page has been updated to include a timezone selector. (HEAD -> master)
+### Added several functions t all the controllers, added a config page with settings, and updated the navigation menu for the application. (HEAD -> master)
 >Author: Peter Kaufman >Commiter: Peter Kaufman
-### Updated config js. (master/master)
+### The config page has been updated to include a timezone selector. (master/master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated config js.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Added new hook localy. Config page has been updated slightly. gitignore has been modified.
 >Author: Peter Kaufman >Commiter: Peter Kaufman

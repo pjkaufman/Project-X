@@ -23,8 +23,8 @@ $(document).ready(function() {
 		var markup;
 		if (this.id == 'remove') {
 			markup = '<div class="modal fade remove" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">' +
-				'<div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="background-color:black;">' +
-				'<h3 class="modal-title" id="lineModalLabel" style="color:#fff;">Remove Dependency or Plugin</h3></div>' +
+				'<div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="border-width-bottom:px;border-color:#B0C4DE;background: linear-gradient(#eee,#ddd);">' +
+				'<h3 class="modal-title" id="lineModalLabel">Remove Dependency or Plugin</h3></div>' +
 				'<div class="modal-body"><div class="form-group"><label for="name">Name</label><input type="text" class="form-control" id="name" placeholder="Enter Name of Dependency or Plugin">' +
 				'</div></div><div class="modal-footer"><div class="btn-group btn-group" role="group" aria-label="group button">' +
 				'<div class="btn-group" role="group">' +
@@ -33,8 +33,8 @@ $(document).ready(function() {
 				'</div></div></div></div></div></div>';
 		} else {
 			markup = '<div class="modal fade add" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">' +
-				'<div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="background-color:black;">' +
-				'<h3 class="modal-title" id="lineModalLabel" style="color:#fff;">Add Dependency or Plugin</h3></div>' +
+				'<div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="border-width-bottom:px;border-color:#B0C4DE;background: linear-gradient(#eee,#ddd);">' +
+				'<h3 class="modal-title" id="lineModalLabel">Add Dependency or Plugin</h3></div>' +
 				'<div class="modal-body"><div class="form-group"><label for="name">Name</label><input type="text" class="form-control" id="name" placeholder="Enter Name of Dependency or Plugin">' +
 				'</div><div class="form-group"><label for="version">Version</label><input type="text" class="form-control" id="version" placeholder="0.0.1">' +
 				'</div></div><div class="modal-footer"><div class="btn-group btn-group" role="group" aria-label="group button">' +

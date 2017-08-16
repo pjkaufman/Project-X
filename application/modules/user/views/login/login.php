@@ -21,23 +21,21 @@
 					<h1>Login</h1>
 				</div>
 				<?= form_open() ?>
-				<div class="input-group" style="margin: 2px; width:99%;">
+				<div class="input-group" style="margin:2px;width:99%;">
 						<div class="form-group">
-							<label for="username">Username</label>
-							<div class="input-group">
-  							<span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+							<div class="input-group" style="margin-bottom:10px;">
+  							<span class="input-group-addon fa fa-user" id="basic-addon1"></span>
   							<input type="text" id="username" name="username" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
 						 </div>
-						<div class="form-group">
-							<label for="password">Password</label>
+						<div class="form-group" style="margin-bottom:15px;">
 							<div class="input-group">
-								<span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
+								<span class="input-group-addon fa fa-lock" id="basic-addon1"></span>
 								<input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-describedby="basic-addon1">
 							</div>
 						</div>
-						<div class="form-group">
-							<input style="float: left; margin-right: 10px" type="submit" class="btn btn-default" value="Login">
-						</div>
+							<div class="form-group">
+								<input style="float: left; margin-right: 10px" type="submit" class="btn btn-default" value="Login">
+							</div>
 				</div>
 				</form>
 				<div>

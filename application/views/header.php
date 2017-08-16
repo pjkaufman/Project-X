@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,12 +26,14 @@
     <!----Datatables CDNs ---->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
     <script charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <!----Font Awsome---->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!----Regular Links ---->
-    <link href="<?php echo base_url() . 'assets/css/style.css';?>" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/'.$_SESSION['cmod'].'.css';?>"/>
-    <link rel="icon" type="image/jpeg" href="<?php echo base_url() . 'assets/images/favicon.jpg';?>">
-    <script src="<?php echo base_url() . 'assets/js/' . $_SESSION['cmod'] . '.js';?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/objects.js';?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/default.js';?>"></script>
+    <link href="<?php echo base_url() . 'assets/css/style.css'; ?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/' . $_SESSION['cmod'] . '.css'; ?>"/>
+    <link rel="icon" type="image/jpeg" href="<?php echo base_url() . 'assets/images/favicon.jpg'; ?>">
+    <script src="<?php echo base_url() . 'assets/js/' . $_SESSION['cmod'] . '.js'; ?>"></script>
+    <script src="<?php echo base_url() . 'assets/js/objects.js'; ?>"></script>
+    <script src="<?php echo base_url() . 'assets/js/default.js'; ?>"></script>
   </head>
 <body>
