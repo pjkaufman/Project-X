@@ -52,6 +52,7 @@ class MX_Controller {
 
         /* autoload module items */
         $this->load->_autoloader($this->autoload);
+        $this->db = $this->load->database('default', true);
     }
 
     public function __get($class) {
