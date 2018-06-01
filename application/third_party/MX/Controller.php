@@ -60,8 +60,11 @@ class MX_Controller {
     }
 
     /**
-     * get_essentials.
+     * loads the header and nav-bar files.
      * @author Peter Kaufman
+     * @example get_essentials();
+     * @since 8-25-17
+     * @version 5-31-18
      **/
     public function get_essentials() {
         $this->load->view('header');
@@ -69,8 +72,11 @@ class MX_Controller {
     }
 
     /**
-     * set_module sets the name of the current module in the SESSION global variable.
+     * sets the name of the current module in the SESSION global variable.
      * @author Peter Kaufman
+     * @example set_module($controller_object);
+     * @since 8-25-17
+     * @version 5-31-18
      * @param $class is a MX_Controller oci_fetch_object
      */
     public function set_module($class) {
@@ -80,6 +86,9 @@ class MX_Controller {
     /**
      * logged_in checks to make sure the user is logged in, if not, the user is redirected to the login page.
      * @author Peter Kaufman
+     * @example logged_in();
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function logged_in() {
         if (!(isset($_SESSION['username']))) {
@@ -90,6 +99,9 @@ class MX_Controller {
     /**
      * update_title sets the title for the current page in the SESSION global variable.
      * @author Peter Kaufman
+     * @example update_title('Home');
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function update_title($title) {
         $_SESSION['title'] = 'Project X - ' . $title;
@@ -98,6 +110,9 @@ class MX_Controller {
     /**
      * default_time_zone function gets the default time zone to use for the modules.
      * @author Peter Kaufman
+     * @example default_time_zone();
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function default_time_zone() {
         $sql = "SELECT `value` FROM `config` WHERE `name` = 'timezone';";
@@ -114,6 +129,9 @@ class MX_Controller {
     /**
      * get_time_zone gets the timezone to use.
      * @author Peter Kaufman
+     * @example get_timezone();
+     * @since 8-25-17
+     * @version 5-31-18 
      */
     public function get_timezone() {
         exit($_SESSION['timezone']);

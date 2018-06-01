@@ -5,106 +5,125 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * User_model class.
  * @extends CI_Model
  */
-class User_model extends CI_Model {
+class User_model extends CI_Model
+{
     /**
      * __construct function.
-     * @author Hedii
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->db = $this->load->database('default', true);
     }
 
     /**
-     * create_user adds a new user to the users database.
+     * adds a new user to the users database.
      * @author Hedii
-     * @param  mixed $username
-     * @param  mixed $email
-     * @param  mixed $password
+     * @example create_user( 'foo', 'foo@gmail.com', 'password');
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  username  is a string which is the username of the user which is to be added to the database
+     * @param  email  is a string which is the email of the user which is to be added to the database
+     * @param  password is a string which is the password of the user which is to be added to the database
      * @return bool  true on success, false on failure
      */
-    public function create_user($username, $email, $password) {
+    public function create_user($username, $email, $password)
+    {
         $date->setTimezone(new DateTimeZone($_SESSION['timezone']));
         $date->sub(new DateInterval('PT3H'));
-        $data = array(
-            'username' => $username,
-            'email' => $email,
-            'password' => $this->hash_password($password),
-            'created_at' => $date->format('Y-m-j H:i:s'),
-        );
+        $sql = "INSERT INTO `users` (`username`, `email`, `password`, `created_at`) VALUES ( " . $username . ", " . $email . ", " . $this->hash_password($password) . ", " . $date->format('Y-m-j H:i:s') . ");";
 
-        return $this->db->insert('users', $data);
+        return $this->db->query($sql);
     }
 
     /**
-     * resolve_user_login compares the password of the user to determine if the credentials match.
+     * compares the password of the user to determine if the credentials match.
      * @author Hedii
-     * @param  mixed $username
-     * @param  mixed $password
+     * @example resolve_user_login('foo', 'password');
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  username is a string which is the username to search for in the database
+     * @param  password is a string which is the password provided by the user
      * @return bool  true on success, false on failure
      */
-    public function resolve_user_login($username, $password) {
-        $this->db->select('password');
-        $this->db->from('users');
-        $this->db->where('username', $username);
-        $hash = $this->db->get()->row('password');
+    public function resolve_user_login($username, $password)
+    {
+        $sql = "SELECT `password` FROM `users` WHERE `username` = '" . $username . "';";
+        $hash = $this->db->query($sql)->row('password');
 
         return $this->verify_password_hash($password, $hash);
     }
 
     /**
-     * get_user_id_from_username gets the user's id from username.
+     * gets the user's id using the username.
      * @author Hedii
-     * @param  mixed $username
+     * @example get_user_id_from_username( 'foo' );
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  username is a string which is the username to search for in the database
      * @return int   the user id
      */
-    public function get_user_id_from_username($username) {
-        $this->db->select('id');
-        $this->db->from('users');
-        $this->db->where('username', $username);
+    public function get_user_id_from_username($username)
+    {
+        $sql = "SELECT `id` FROM `users` WHERE `username` = '" . $username . "';";
 
-        return $this->db->get()->row('id');
+        return $this->db->query($sql)->row('id');
     }
 
     /**
-     * get_user gets the user's information based on $user_id.
+     * gets the user's information based on the user's id.
      * @author Hedii
-     * @param  mixed  $user_id
+     * @example get_user(1);
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  user_id is the id of the username specified by the user
      * @return object the user object
      */
-    public function get_user($user_id) {
-        $this->db->from('users');
-        $this->db->where('id', $user_id);
+    public function get_user($user_id)
+    {
+        $sql = "SELECT * FROM `users` WHERE `id` = " . $user_id . ";";
 
-        return $this->db->get()->row();
+        return $this->db->query($sql)->row();
     }
 
     /**
-     * hash_password hashes the password.
+     * hashes the password.
      * @author Hedii
-     * @param  mixed       $password
+     * @example hash_password('password');
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  password is a string which is to be hashed
      * @return string|bool could be a string on success, or bool false on failure
      */
-    private function hash_password($password) {
+    private function hash_password($password)
+    {
         return password_hash($password, PASSWORD_BCRYPT);
     }
 
     /**
-     * verify_password_hash verfies that $password will be hashed.
+     * verfies that the provided password is the same as the one listed in the databse.
      * @author Hedii
-     * @param  mixed $password
-     * @param  mixed $hash
-     * @return bool
+     * @example verify_password_hash('password', $hash);
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  password is a string which is the password of a specified user
+     * @param  hash is the type of hash to be done in order to unhash the password
+     * @return boolean is true if the passwords match and false if they do not
      */
-    private function verify_password_hash($password, $hash) {
+    private function verify_password_hash($password, $hash)
+    {
         return password_verify($password, $hash);
     }
 
     /**
-     * update_login_data updates the last_login and num_logins in the users table.
+     * updates the last_login and num_logins in the users table.
      * @author Peter Kaufman
+     * @example update_login_data();
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function update_login_data() {
+    public function update_login_data()
+    {
         $date = new DateTime();
         $date->setTimezone(new DateTimeZone($_SESSION['timezone']));
         $date->sub(new DateInterval('PT3H'));
@@ -119,19 +138,18 @@ class User_model extends CI_Model {
     }
 
     /**
-     * update_logout_data updates the logins table.
+     * updates the logins table.
      * @author Peter Kaufman
+     * @example update_logout_data();
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function update_logout_data() {
+    public function update_logout_data()
+    {
         $date = new DateTime();
         $date->setTimezone(new DateTimeZone($_SESSION['timezone']));
         $date->sub(new DateInterval('PT3H'));
-        $data = array(
-            'username' => $_SESSION['username'],
-            'login' => $_SESSION['last_login'],
-            'logout' => $date->format('Y-m-d H:i:s'),
-            'datestamp' => $date->format('Y-m-d'),
-        );
-        $this->db->insert('logins', $data);
+        $sql = "INSERT INTO `logins` (`username`, `login`, `logout`, `datestamp`) VALUES ('" . $_SESSION['username'] . "', '" . $_SESSION['last_login'] . "', '" . $date->format('Y-m-d H:i:s') . "', '" .  $date->format('Y-m-d') . "');";
+        $this->db->query($sql);
     }
 }

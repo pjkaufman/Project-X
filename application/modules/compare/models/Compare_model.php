@@ -5,23 +5,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * Compare_model class.
  * @extends CI_Model
  */
-class Compare_model extends CI_Model {
+class Compare_model extends CI_Model
+{
     /**
      * __construct function.
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->set_dir();
     }
 
     /**
+     * gets each index and then decides which index which ones to add or drop it also adds all PRIMARY KEYs 
+     * from the dev database.
      * @author Peter Kaufman
-     * @description manage_indices gets each index and then decides which index which ones to add or drop
-     * it also adds all PRIMARY KEYs from the dev database
+     * @since 8-25-17
+     * @version 5-31-18
      * @example manage_indices();
-     * @return [array] $sql_commands_to_run is a an array that represents the mysql type and a little string to add and or drop the index
+     * @return sql_commands_to_run is a an array that is the mysql type and a little string to add and or drop the index
      */
-    public function manage_indices() {
+    public function manage_indices()
+    {
         $indices_present = array();
         $indices_missing = array();
         $sql_commands_to_run = array();
@@ -80,14 +85,17 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * creates or drops the tables passed in.
      * @author Peter Kaufman
-     * @description manage_tables creates or drops the tables passed in
      * @example manage_tables($tables, $action);
-     * @param  [array]  $tables is an array of tables in a db
-     * @param  [string] $action is as tring which determines whether or not the table will be created or dropped
-     * @return [array]  $sql_commands_to_run is an array that represents the mysql code to execute to create or drop tables
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  tables is an array of tables in a db
+     * @param  action is as string which determines whether or not the table will be created or dropped
+     * @return sql_commands_to_run is an array that is the mysql code to execute to create or drop tables
      */
-    public function manage_tables($tables, $action) {
+    public function manage_tables($tables, $action)
+    {
         $sql_commands_to_run = array();
 
         if ($action == 'create') {
@@ -106,11 +114,14 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * compares table structures and returns an array of tables to update.
      * @author Gordon Murray
-     * @description compare_table_structures compares table structures and returns an array of tables to update
      * @example compare_table_structures();
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function compare_table_structures() {
+    public function compare_table_structures()
+    {
         /*
          * compare the development sql to the live sql
          */
@@ -125,24 +136,28 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * updates the existing records by modifying, adding, and removing columns.
      * @author Gordon Murray && Peter Kaufman
-     * @description update_existing_tables updates the existing records by modifying, adding, and removing columns
-     * @example update_existing_tables(); returns the sql needed to update the desired db's tables*
+     * @example update_existing_tables(); returns the sql needed to update the desired db's tables
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function update_existing_tables() {
+    public function update_existing_tables()
+    {
         return $this->determine_field_changes();
     }
 
     /**
+     * returns the desired db's table names.
      * @author Peter Kaufman
-     * @description table_list returns the desired db's table names
      * @example table_list($db);
      * @since 8-25-17
-     * @last_updated 8-25-17
-     * @param  [Database Connection] $db db to be used
-     * @return [array]               $result is an array of table names which exist in the provided db
+     * @version 8-25-17
+     * @param  db is a databse connection that is to be used
+     * @return result is an array of table names which exist in the provided database
      */
-    public function table_list($db) {
+    public function table_list($db)
+    {
         $temp = null;
         $result = array();
         $temp = $db->query("SELECT `table_name` FROM `information_schema`.`tables` where `table_schema`='" . $db->database . "' AND `table_type` = 'BASE TABLE';")->result();
@@ -155,13 +170,16 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * gets a list of view.
      * @author Peter Kaufman
-     * @get_views gets a list of view
      * @example get_views($db, $views);
-     * @param [Database Connection] $db    is a database connection that is to be used to get the views from
-     * @param [array]               $views is the array where the view names will be stored
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param db    is a database connection that is to be used to get the views from
+     * @param views is the array where the view names will be stored
      */
-    public function get_views($db, &$views) {
+    public function get_views($db, &$views)
+    {
         $result = array();
         $sql = "SELECT `TABLE_NAME` AS `table_name`
                 FROM `information_schema`.`tables`
@@ -179,12 +197,15 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * returns an array of SQL statements which either drop or add views.
      * @author Peter Kaufman
-     * @description view_results returns an array of SQL statements which either drop or add views
      * @example view_results();
-     * @return [array] $sql_commands_to_run       is an array of SQL statements which either drop or add views
+     * @since 8-25-17
+     * @version 5-31-18
+     * @return sql_commands_to_run is an array of SQL statements which either drop or add views
      */
-    public function view_results() {
+    public function view_results()
+    {
         $sql_commands_to_run = array();
         //live views must be dropped no questions asked
         foreach ($_SESSION['live']['views'] as $view) {
@@ -199,14 +220,14 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * returns an array of SQL statements which add all AUTO_INCREMENT's back to the the database.
      * @author Peter Kaufman
-     * @description fix_AI returns an array of SQL statements which add all
-     * AUTO_INCREMENT's back to the the database
      * @example fix_AI();
      * @since 5-19-18
-     * @last_updated 5-19-18
+     * @version 5-19-18
      */
-    public function fix_AI() {
+    public function fix_AI()
+    {
         $sql_commands_to_run = array();
         //check each table in the dev database
         foreach ($_SESSION['dev']['tables'] as $table) {
@@ -221,14 +242,17 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * takes an where a table list is stored and a database connection the result is that columns and indexes are 
+     * added to the provided array.
      * @author Peter Kaufman
-     * @description fill_out_tables takes an where a table list is stored and a database connection
-     * the result is that columns and indexes are added to the provided array
-     * @example fill_out_tables(&$schemaStructure, $db);
-     * @param [array]               $schemaStructure is an array which contains a table list
-     * @param [Database Connection] $db              is a database connection which will be used to get the necessary information
+     * @example fill_out_tables($schemaStructure, $db);
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param schemaStructure is an array which contains a table list
+     * @param db              is a database connection which will be used to get the necessary information
      */
-    public function fill_out_tables(&$schemaStructure, $db) {
+    public function fill_out_tables(&$schemaStructure, $db)
+    {
         $schemaStructure['tables'] = array();
         $schemaStructure['indices'] = array();
         //get all columns for each table
@@ -253,12 +277,15 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * returns an array of SQL statements which drop all AUTO_INCREMENT's and PRIMARY KEY's.
      * @author Peter Kaufman
-     * @description get_first_steps returns an array of SQL statements which drop all AUTO_INCREMENT's and PRIMARY KEY's
      * @example get_first_steps();
-     * @return [array] is  an array of SQL statements which drop all AUTO_INCREMENT's and PRIMARY KEY's
+     * @since 8-25-17
+     * @version 5-31-18
+     * @return array is  an array of SQL statements which drop all AUTO_INCREMENT's and PRIMARY KEY's
      */
-    public function get_first_steps() {
+    public function get_first_steps()
+    {
         //find and drop all PRIMARY KEY's in the live databases
         $sql_commands_to_run = array();
         //go through all live tables that are not in exclude
@@ -299,39 +326,43 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * creates a snapshot of the db which includes tables, create statements, column and column fields, and indices.
      * @author Peter Kaufman
-     * @description create_db_snapshot creates a snapshot of the db which includes tables,
-     * create statements, column and column fields, and indices
      * @example create_db_snapshot();
      * @since 8-25-17
-     * @last_updated 5-19-18
+     * @version 5-19-18
      */
-    public function create_db_snapshot() {
+    public function create_db_snapshot()
+    {
         $file = fopen(getcwd() . '\dbsnapshot.json', 'w');
         fwrite($file, json_encode($_SESSION['dev']));
         fclose($file);
     }
 
     /**
+     * gets the snapshot of the db.
      * @author Peter Kaufmna
-     * @description get_db_snapshot gets the snapshot of the db
      * @example get_db_snapshot();
      * @since 8-25-17
-     * @last_updated 5-19-18
+     * @version 5-19-18
      */
-    public function get_db_snapshot() {
+    public function get_db_snapshot()
+    {
         $_SESSION['dev'] = json_decode(file_get_contents(getcwd() . '\dbsnapshot.json'), true);
     }
 
     /**
+     * takes an array where a table list is stored and an array the result is that a column is added to the 
+     * table structure.
      * @author Peter Kaufman
-     * @description create_col takes an array where a table list is stored and an array
-     * the result is that a column is added to the table structure
-     * @example create_col(&$tableStructure, $column);
-     * @param [array] $schemaStructure is an array which contains a table list
-     * @param [array] $column          is an array which contains data about a column
+     * @example create_col($tableStructure, $column);
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param schemaStructure is an array which contains a table list
+     * @param column          is an array which contains data about a column
      */
-    private function create_col(&$tableStructure, $column) {
+    private function create_col(&$tableStructure, $column)
+    {
         //get data from queried array
         $name = $column->Field;
         $type = $column->Type;
@@ -370,15 +401,18 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * takes an array where a table list is stored, an array, and a table name the result is that indexes are 
+     * added to the table structure.
      * @author Peter Kaufman
-     * @description create_indexes takes an array where a table list is stored, an array, and a table name
-     * the result is that indexes are added to the table structure
-     * @example create_indexes(&$tableStructure, $index, $tName);
-     * @param [array]  $schemaStructure is an array which contains a table list
-     * @param [array]  $index           is an array which contains data about a indexes
-     * @param [string] $tName           is the name of the table where the indexes are from
+     * @example create_indexes($tableStructure, $index, $tName);
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param schemaStructure is an array which contains a table list
+     * @param index           is an array which contains data about a indexes
+     * @param tName           is the name of the table where the indexes are from
      */
-    private function create_indexes(&$tableStructure, $index, $tName) {
+    private function create_indexes(&$tableStructure, $index, $tName)
+    {
         //get data from queried array
         $lastName = '';
         $distinct = '';
@@ -432,17 +466,19 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * takes two strings, an integer, and an array the result is a create statement for the provided data.
      * @author Peter Kaufman
-     * @description get_create_index takes two strings, an integer, and an array
-     * the result is a create statement for the provided data
      * @example get_create_index($columns, $name, $unique, $type);
-     * @param  [array]  $columns is an array which contains a list of column names
-     * @param  [string] $name    is a string which represents the name of the index
-     * @param  [int]    $unique  is the unique value (0 or 1, unique or not unique)
-     * @param  [string] $type    is the type of indexing used for the index
-     * @return [string] is the create statement for the index based on the provided strings
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param  columns is an array which contains a list of column names
+     * @param  name    is a string which is the name of the index
+     * @param  unique  is the unique value (0 or 1, unique or not unique)
+     * @param  type    is a string which is the type of indexing used for the index
+     * @return is a the create statement for the index based on the provided strings
      */
-    private function get_create_index($columns, $name, $unique, $type) {
+    private function get_create_index($columns, $name, $unique, $type)
+    {
         $create = '';
         $column = '';
         // setup the appropriate for the columns
@@ -470,13 +506,14 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * sets the directory for where the db snapshot is.
      * @author Peter Kaufman
-     * @description set_dir sets the directory for where the db snapshot is
      * @example set_dir();
      * @since 8-25-17
-     * @last_updated 8-25-17
+     * @version 8-25-17
      */
-    private function set_dir() {
+    private function set_dir()
+    {
         getcwd();
         chdir('application');
         chdir('modules');
@@ -484,12 +521,15 @@ class Compare_model extends CI_Model {
     }
 
     /**
+     * edits table columns by adding, updating, and removing them.
      * @author Gordon Murray && Peter Kaufman
-     * @description determine_field_changes edits table columns by adding, updating, and removing them
-     * @example determine_field_changes($type) returns *the sql needed to update the desired db's tables
-     * @return [array] $sql_commands_to_run is an array that represents the sql to run to add, edit, or remove a column
+     * @example determine_field_changes($type) returns the sql needed to update the desired db's tables
+     * @return sql_commands_to_run is an array that is the sql to run to add, edit, or remove a column
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    private function determine_field_changes() {
+    private function determine_field_changes()
+    {
         $sql_commands_to_run = array();
         /**
          * loop through the source (usually development) database. if any differences

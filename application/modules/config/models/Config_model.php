@@ -15,8 +15,11 @@ class Config_model extends CI_Model {
     }
 
     /**
-     * function updates data from the Config table of the db.
+     * updates data from the Config table of the db.
      * @author Peter Kaufman
+     * @example updateTimezone('UTC');
+     * @since 8-25-17
+     * @version 5-31-18
      * @param name the name of the setting to update
      * @param value the new value of the desired configuration setting
      */

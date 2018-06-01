@@ -1,4 +1,6 @@
-### Updated database comparison code. (HEAD -> master)
+### Updated documentation and standardized it throughout the php files. (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated database comparison code. (library)
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated the README page. Added timezone functionality to the clock and got rid of the moment timezone bug by preventing get timezone from being called on the login or register page. (master/master)
 >Author: Peter Kaufman >Commiter: Peter Kaufman

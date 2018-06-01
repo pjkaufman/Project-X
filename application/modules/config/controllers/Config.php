@@ -2,11 +2,13 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Config extends MX_Controller {
+class Config extends MX_Controller
+{
     /**
      * __construct function.
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->helper(array('url'));
         $this->load->model('config_model');
@@ -15,22 +17,28 @@ class Config extends MX_Controller {
     }
 
     /**
-     * index function calls get_essentials and loads the home view.
+     * calls get_essentials and loads the home view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/config'
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function index() {
+    public function index()
+    {
         $this->update_title('Configuration');
         $this->get_essentials();
         $this->load->view('config');
     }
 
     /**
-     * time_zones function returns a list of timezones.
+     * returns a list of timezones.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/config/time_zones'
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function time_zones() {
+    public function time_zones()
+    {
         $cities = array(
          'EST',
          'AST',
@@ -55,11 +63,14 @@ class Config extends MX_Controller {
     }
 
     /**
-     * update_setting function updates a setting in the config table.
+     * updates a setting in the config table.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/config/update_setting'
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function update_timezone() {
+    public function update_timezone()
+    {
         $this->config_model->updateTimezone($_POST['time_zone']);
         exit();
     }

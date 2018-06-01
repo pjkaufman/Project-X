@@ -4,10 +4,14 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class Compare extends MX_Controller {
-    public function __construct() {
+class Compare extends MX_Controller
+{
+    /**
+     * __construct function.
+     */
+    public function __construct()
+    {
         parent::__construct();
-        $this->load->helper(array('url'));
         $this->load->model('compare_model');
         $this->set_module($this);
         $this->logged_in();
@@ -26,13 +30,29 @@ class Compare extends MX_Controller {
         $_SESSION['compare'] = 2;
     }
 
-    public function index() {
+    /**
+     * sets up the view for the user
+     * @author Peter Kaufman
+     * @example base_url() . 'index.php/db_compare'
+     * @since 8-25-17
+     * @version 5-31-18
+     */
+    public function index()
+    {
         $this->update_title('Compare');
         $this->get_essentials();
         $this->load->view('compare');
     }
 
-    public function take_snapshot() {
+    /**
+     * takes a database snapshot of the live database connection and saves it to a file
+     * @author Peter Kaufman
+     * @example base_url() . 'index.php/db_compare/take_snapshot'
+     * @since 8-25-17
+     * @version 5-31-18
+     */
+    public function take_snapshot()
+    {
         $this->set_dev('false');
         $_SESSION['dev']['tables_list'] = $this->compare_model->table_list($this->DB1);
         $this->compare_model->fill_out_tables($_SESSION['dev'], $this->DB1);
@@ -40,7 +60,15 @@ class Compare extends MX_Controller {
         $this->compare_model->create_db_snapshot();
     }
 
-    public function db_compare() {
+    /**
+     * compares two databases and exits with the SQL statements that are to be returned
+     * @author Peter Kaufman
+     * @example base_url() . 'index.php/db_compare/db_compare'
+     * @since 8-25-17
+     * @version 5-31-18
+     */
+    public function db_compare()
+    {
         if (array_key_exists('num', $this->input->post())) {
             $this->set_dev($this->input->post()['num']);
         }
@@ -118,13 +146,15 @@ class Compare extends MX_Controller {
     }
 
     /**
+     * sets the dev database based on an integer.
      * @author Peter Kaufman
-     * @description set_dev sets the dev database based on an integer
-     * @example get_indices(1);
-     * @param [string] type determines whether to get a dbSnapshot or load the
-     * dev database connectio
+     * @example base_url() . 'index.php/db_compare/set_dev'
+     * @since 8-25-17
+     * @version 5-31-18
+     * @param type determines whether to get a dbSnapshot or load the dev database connection
      */
-    public function set_dev($type) {
+    public function set_dev($type)
+    {
         if ($type == 'true' && file_exists('dbsnapshot.json')) {
             $this->compare_model->get_db_snapshot();
             $_SESSION['compare'] = 1;
@@ -132,14 +162,15 @@ class Compare extends MX_Controller {
     }
 
     /**
-     * @author Peter Kaufman
-     * @description update_array turns an array into an associative array
-     * @example update_exclusion($drop, $add);
+     * turns an array into an associative array
+     * @author Peter Kaufman 
+     * @example base_url() . 'index.php/db_compare/update_array'
      * @since 8-25-17
-     * @last_updated 8-25-17
-     * @param [array] $array is the array to be modified
+     * @version 5-31-18
+     * @param array is the array to be modified
      */
-    public function update_array(&$array) {
+    public function update_array(&$array)
+    {
         $temp = array();
 
         foreach ($array as $tName) {

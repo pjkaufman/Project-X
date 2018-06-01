@@ -2,30 +2,31 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends MX_Controller {
+class User extends MX_Controller
+{
     /**
      * __construct function.
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
-        $this->load->helper(array('url'));
         $this->load->model('user_model');
         $this->set_module($this);
         $this->default_time_zone();
     }
 
     /**
-     * register function creates a user and redirect to login page.
+     * creates a user and redirect to login page.
      * @author Hedii & Peter Kaufman
      * @example base_url() . 'index.php/user/register'
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function register() {
+    public function register()
+    {
         // create the data object
         $this->update_title('Register');
         $data = new stdClass();
-        // load form helper and validation library
-        $this->load->helper('form');
-        $this->load->library('form_validation');
         // set validation rules
         $this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_numeric|min_length[4]|is_unique[users.username]', array('is_unique' => 'This username already exists. Please choose another one.'));
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
@@ -56,17 +57,17 @@ class User extends MX_Controller {
     }
 
     /**
-     * login takes in information from the login form, validates it, and redirects to the appropriate page.
+     * takes in information from the login form, validates it, and redirects to the appropriate page.
      * @author Hedii & Peter Kaufman
      * @example base_url() . 'index.php/user/login'
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function login() {
+    public function login()
+    {
         // create the data object
         $this->update_title('Login');
         $data = new stdClass();
-        // load form helper and validation library
-        $this->load->helper('form');
-        $this->load->library('form_validation');
         // set validation rules
         $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -106,11 +107,14 @@ class User extends MX_Controller {
     }
 
     /**
-     * logout logs the user out and redirects to the login page.
+     * logs the user out and redirects to the login page.
      * @author Hedii & Peter Kaufman
      * @example base_url() . 'index.php/user/logout'
+     * @since 8-25-17
+     * @version 5-31-18
      */
-    public function logout() {
+    public function logout()
+    {
         // create the data object
         $data = new stdClass();
         $this->user_model->update_logout_data();

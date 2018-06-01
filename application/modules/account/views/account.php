@@ -1,6 +1,6 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
     <div class="content">
-      <div class="container">
+      <div class="container" id="right">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
@@ -24,10 +24,10 @@
                     <br />
                     <i class="glyphicon glyphicon-certificate"></i>
                     <?php
-                      if ($_SESSION['is_admin']===false){
-                        echo 'User';
-                      }else{
-                        echo 'Admin';
+                      if ($_SESSION['is_admin']===false) {
+                          echo 'User';
+                      } else {
+                          echo 'Admin';
                       }
                     ?>
                     <br />

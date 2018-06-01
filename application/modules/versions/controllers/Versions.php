@@ -5,8 +5,6 @@ class Versions extends MX_Controller
 {
     /**
        * __construct function.
-       * @access public
-       * @return void
        */
     public function __construct()
     {
@@ -16,11 +14,13 @@ class Versions extends MX_Controller
         $this->set_module($this);
         $this->logged_in();
     }
+
     /**
-     * index function calls get_essentials and loads the home view
-     * @access public
+     * calls get_essentials and loads the home view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/versions'
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function index()
     {
@@ -28,23 +28,25 @@ class Versions extends MX_Controller
         $this->get_essentials();
         $this->load->view('versions');
     }
+
     /**
-     * get_versions_data function calls to get_versions to get version data
-     * @access public
+     * calls to get_versions to get version data.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/get_version_data'
-     * @return void
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function get_version_data()
     {
         exit(json_encode($this->versions_model->get_versions()));
     }
+
     /**
-     * update_version function calls to update_version to update version data
-     * @access public
+     * calls to update_version to update version data.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/update_version'
-     * @return void
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function update_version()
     {
@@ -53,26 +55,27 @@ class Versions extends MX_Controller
         }
         exit();
     }
+
     /**
-     * update_version_table function calls to update_version to update version data
-     * @access public
+     * calls to update_version to update version data.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/update_version_table'
-     * @return void
+     * @since 8-25-17
+     * @version 5-31-18
      */
     public function update_version_table()
     {
-      $data = array(
+        $data = array(
         'name'  => $_POST['name'],
         'version' => '',
       );
-      if($_POST['id'] != '' && $_POST['name'] != ''){
-        if($_POST['id'] == 'add' && $_POST['version'] != ''){
-          $data['version'] = $_POST['version'];
+        if ($_POST['id'] != '' && $_POST['name'] != '') {
+            if ($_POST['id'] == 'add' && $_POST['version'] != '') {
+                $data['version'] = $_POST['version'];
+            }
+            $this->versions_model->update_version_table($_POST['id'], $data);
         }
-        $this->versions_model->update_version_table($_POST['id'], $data);
-      }
 
-      exit();
+        exit();
     }
 }

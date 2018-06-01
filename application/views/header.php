@@ -31,8 +31,7 @@
     <!----Font Awsome---->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!----Regular Links ---->
-    <link href="<?php echo base_url() . 'assets/css/style.css'; ?>" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/css/' . $_SESSION['cmod'] . '.css'; ?>"/>
+    <link href="<?php echo base_url() . 'assets/css/main.css'; ?>" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="<?php echo base_url() . 'assets/images/favicon.jpg'; ?>">
     <script src="<?php echo base_url() . 'assets/js/' . $_SESSION['cmod'] . '.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/objects.js'; ?>"></script>
