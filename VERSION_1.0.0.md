@@ -1,4 +1,6 @@
-### Updated the README file and added a script to allow for an easier setup. (HEAD -> master)
+### Updated the README and added a defualt starting point for the database.php (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated the README file and added a script to allow for an easier setup.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Update database.php
 >Author: Peter Kaufman >Commiter: GitHub

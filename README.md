@@ -10,10 +10,11 @@
 
 ## **Installation:**
 
-Download or clone this repository into the www folder of your apache server
+* Download or clone this repository into the www folder of your apache server
 
 ## **After Installation:**
 
-Open /application/config/database.php and edit with your database settings
-Then got to /ApplicationProject1/index.php/setup
+* Move database.php to /application/config/database.php from the base directory of this repository
+* Open /application/config/database.php and edit with your database settings  
+* Then got to /ApplicationProject1/index.php/setup  
 Note: If you do go to the login page, ignore the error and go to the link listed above.
