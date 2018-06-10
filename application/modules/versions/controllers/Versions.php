@@ -9,7 +9,6 @@ class Versions extends MX_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper(array('url'));
         $this->load->model('versions_model');
         $this->set_module($this);
         $this->logged_in();

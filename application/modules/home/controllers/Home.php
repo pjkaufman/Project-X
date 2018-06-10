@@ -15,7 +15,7 @@ class Home extends MX_Controller
     }
 
     /**
-     * index calls get_essentials and loads the home view.
+     * calls get_essentials and loads the home view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/home'
      * @since 8-25-17

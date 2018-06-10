@@ -53,6 +53,7 @@ class MX_Controller {
         /* autoload module items */
         $this->load->_autoloader($this->autoload);
         $this->db = $this->load->database('default', true);
+        $this->get_links();
     }
 
     public function __get($class) {
@@ -84,7 +85,7 @@ class MX_Controller {
     }
 
     /**
-     * logged_in checks to make sure the user is logged in, if not, the user is redirected to the login page.
+     * to make sure the user is logged in, if not, the user is redirected to the login page.
      * @author Peter Kaufman
      * @example logged_in();
      * @since 8-25-17
@@ -97,7 +98,7 @@ class MX_Controller {
     }
 
     /**
-     * update_title sets the title for the current page in the SESSION global variable.
+     * sets the title for the current page in the SESSION global variable.
      * @author Peter Kaufman
      * @example update_title('Home');
      * @since 8-25-17
@@ -108,7 +109,7 @@ class MX_Controller {
     }
 
     /**
-     * default_time_zone function gets the default time zone to use for the modules.
+     * gets the default time zone to use for the modules.
      * @author Peter Kaufman
      * @example default_time_zone();
      * @since 8-25-17
@@ -127,7 +128,7 @@ class MX_Controller {
     }
 
     /**
-     * get_time_zone gets the timezone to use.
+     * gets the timezone to use.
      * @author Peter Kaufman
      * @example get_timezone();
      * @since 8-25-17
@@ -135,5 +136,28 @@ class MX_Controller {
      */
     public function get_timezone() {
         exit($_SESSION['timezone']);
+    }
+
+    /**
+     * gets the link structure for the navigation page.
+     * @author Peter Kaufman
+     * @example get_links();
+     * @since 6-9-18
+     * @version 6-9-18 
+     */
+    private function get_links() {
+        $_SESSION['links'] = array();
+        $sql = "SELECT `*` FROM `links`;";
+        $results = $this->db->query($sql)->result();
+        foreach( $results as $result ) {
+            $_SESSION['links'][$result->linkName] = array(
+                'name'  => $result->linkName,
+                'js'    => $result->linkJS,
+                'link'  => $result->link,
+                'ID'    => (int)$result->linkID,
+                'code'  => (int)$result->code,
+                'access'=> (int)$result->access,
+            );
+        }
     }
 }

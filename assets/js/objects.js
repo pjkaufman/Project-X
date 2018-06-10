@@ -35,7 +35,6 @@ var Table = {
 	/**
 	 * @function init
 	 * @description Initializes the table object
-	 * @memberOf Table
 	 * @param {string} name Name used as dom element id
 	 * @param {string} url Url to data source
 	 * @param {array} columns Column names
@@ -67,7 +66,6 @@ var Table = {
 	/**
 	 * @function createTable
 	 * @description Creates a dom element for the table object
-	 * @memberOf Table
 	 * @returns void
 	 */
 	createTable: function() {
@@ -76,7 +74,6 @@ var Table = {
 	/**
 	 * @function getColumns
 	 * @description Return an array of column data
-	 * @memberOf Table
 	 * @returns {Array|Table.getColumns.c}
 	 */
 	getColumns: function() {

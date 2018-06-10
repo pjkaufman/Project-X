@@ -1,4 +1,6 @@
-### Updated documentation and standardized it throughout the php files. (HEAD -> master)
+### Added a table to store the nav bar data to make the nav bar more flexible. (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated documentation and standardized it throughout the php files.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated database comparison code. (library)
 >Author: Peter Kaufman >Commiter: Peter Kaufman

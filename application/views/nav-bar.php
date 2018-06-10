@@ -30,23 +30,39 @@
           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           <nav class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
-                  <li class="active">
-                      <a href="<?php echo base_url() . 'index.php/home'; ?>"><i class="fa fa-fw fa-home"></i> Home</a>
-                  </li>
-                  <li>
-                      <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-wrench"></i> Administartion<i class="fa fa-fw fa-caret-down"></i></a>
-                      <ul id="demo" class="collapse">
-                          <li>
-                              <a href="<?php echo base_url() . 'index.php/config'; ?>"><i class="fa fa-fw fa-cog"></i> Configuration</a>
-                          </li>
-                          <li>
-                              <a href="<?php echo base_url() . 'index.php/versions'; ?>"><i class="fa fa-fw fa-info-circle"></i> Version Info</a>
-                          </li>
-                          <li>
-                              <a href="<?php echo base_url() . 'index.php/logs'; ?>"><i class="fa fa-fw fa-file"></i> Logs</a>
-                          </li>
-                      </ul>
-                  </li>
+              <?php
+                $drp = 1;
+                foreach( $_SESSION['links'] as $link ) {
+                    if ( $_SESSION['is_admin']===true || ( $_SESSION['is_admin']===false && $link['access'] != 1 )) {
+                        switch ( $link['code']) {
+                            case 0: // the link is just a list item, nothing more
+                                echo "<li>";
+                                echo "<a href='" . base_url() . 'index.php/' . $link['link'] . "'> " . $link['name'] . "</a>";
+                                echo "</li>";
+                                break;
+                            case 1: // the link is a start of a dropdown list
+                                echo '<li>';
+                                echo "<a href='javascript:;' data-toggle='collapse' data-target='#drp" . $drp . "'>" . $link['name'] . "</a>";
+                                echo '<ul id="drp' . $drp . '" class="collapse">';
+                                $drp++;
+                                break;
+                            case 2: // the link is the end of a dropdown list
+                                echo "<li>";
+                                echo "<a href='" . base_url() . 'index.php/' . $link['link'] . "'> " . $link['name'] . "</a>";
+                                echo "</li>";
+                                echo "</ul>";
+                                break;
+                            case 3: // the link is the active link
+                                echo '<li class="active">';
+                                echo "  <a href='" . base_url() . 'index.php/' . $link['link'] . "'>" . $link['name'] . "</a>";
+                                echo '</li>';
+                                break;
+                            defualt:
+                                break;
+                        } 
+                    }
+                }
+            ?>
                 </ul>
           <!-- /.navbar-collapse -->
       </nav>
