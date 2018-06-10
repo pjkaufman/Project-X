@@ -53,7 +53,6 @@ class MX_Controller {
         /* autoload module items */
         $this->load->_autoloader($this->autoload);
         $this->db = $this->load->database('default', true);
-        $this->get_links();
     }
 
     public function __get($class) {
@@ -118,8 +117,7 @@ class MX_Controller {
     public function default_time_zone() {
         $sql = "SELECT `value` FROM `config` WHERE `name` = 'timezone';";
         $results = $this->db->query($sql)->result();
-
-        if (is_array($results)) {
+        if (!empty($results)) {
             $results = (array)array_shift($results);
             $_SESSION['timezone'] = $results['value'];
         } else {
@@ -145,7 +143,7 @@ class MX_Controller {
      * @since 6-9-18
      * @version 6-9-18 
      */
-    private function get_links() {
+    public function get_links() {
         $_SESSION['links'] = array();
         $sql = "SELECT `*` FROM `links`;";
         $results = $this->db->query($sql)->result();

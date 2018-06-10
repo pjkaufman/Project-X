@@ -12,6 +12,7 @@ class Home extends MX_Controller
         parent::__construct();
         $this->set_module($this);
         $this->logged_in();
+        $this->get_links();
     }
 
     /**

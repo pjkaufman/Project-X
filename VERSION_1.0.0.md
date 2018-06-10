@@ -1,4 +1,10 @@
-### Added a table to store the nav bar data to make the nav bar more flexible. (HEAD -> master)
+### Updated the README file and added a script to allow for an easier setup. (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Update database.php
+>Author: Peter Kaufman >Commiter: GitHub
+### Update .gitignore
+>Author: Peter Kaufman >Commiter: GitHub
+### Added a table to store the nav bar data to make the nav bar more flexible.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated documentation and standardized it throughout the php files.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
