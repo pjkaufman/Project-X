@@ -16,7 +16,7 @@ class Home extends MX_Controller
     }
 
     /**
-     * calls get_essentials and loads the home view.
+     * loads the home view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/home'
      * @since 8-25-17
@@ -25,7 +25,19 @@ class Home extends MX_Controller
     public function index()
     {
         $this->update_title('Home');
-        $this->get_essentials();
         $this->load->view('home');
+    }
+
+    /**
+     * calls get_essentials and loads the home view.
+     * @author Peter Kaufman
+     * @example base_url() . 'index.php/home/get_essentials'
+     * @since 8-25-17
+     * @version 5-31-18
+     */
+    public function get_essentials()
+    {
+        parent::get_essentials();
+        $this->index();
     }
 }

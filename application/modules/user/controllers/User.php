@@ -95,7 +95,8 @@ class User extends MX_Controller
                 $_SESSION['num_logins'] = (int)$user->num_logins;
                 // user login ok
                 $this->user_model->update_login_data();
-                header('location: ' . base_url() . 'index.php/home');
+                header('location: ' . base_url() . 'index.php/home/get_essentials');
+                
             } else {
                 // login failed
                 $data->error = 'Wrong username or password.';

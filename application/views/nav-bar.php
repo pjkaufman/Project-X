@@ -18,7 +18,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo ' ' . $_SESSION['username'] . ' '; ?> <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                       <li>
-                          <a href="<?php echo base_url() . 'index.php/account'; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+                          <a href="javascript:;" class="href"><?php echo $_SESSION['links']['Profile']['name'] ?></a>
                       </li>
                       <li class="divider"></li>
                       <li>
@@ -37,7 +37,7 @@
                         switch ( $link['code']) {
                             case 0: // the link is just a list item, nothing more
                                 echo "<li>";
-                                echo "<a href='" . base_url() . 'index.php/' . $link['link'] . "'> " . $link['name'] . "</a>";
+                                echo "<a href='javascript:;' class='href'> " . $link['name'] . "</a>";
                                 echo "</li>";
                                 break;
                             case 1: // the link is a start of a dropdown list
@@ -48,13 +48,13 @@
                                 break;
                             case 2: // the link is the end of a dropdown list
                                 echo "<li>";
-                                echo "<a href='" . base_url() . 'index.php/' . $link['link'] . "'> " . $link['name'] . "</a>";
+                                echo "<a href='javascript:;' class='href'> " . $link['name'] . "</a>";
                                 echo "</li>";
                                 echo "</ul>";
                                 break;
                             case 3: // the link is the active link
                                 echo '<li class="active">';
-                                echo "  <a href='" . base_url() . 'index.php/' . $link['link'] . "'>" . $link['name'] . "</a>";
+                                echo "  <a href='javascript:;' class='href'>" . $link['name'] . "</a>";
                                 echo '</li>';
                                 break;
                             defualt:

@@ -35,12 +35,11 @@ class Compare extends MX_Controller
      * @author Peter Kaufman
      * @example base_url() . 'index.php/db_compare'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-10-18
      */
     public function index()
     {
         $this->update_title('Compare');
-        $this->get_essentials();
         $this->load->view('compare');
     }
 

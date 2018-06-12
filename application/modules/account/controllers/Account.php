@@ -16,16 +16,15 @@ class Account extends MX_Controller
     }
 
     /**
-     * calls get_essentials and loads account view.
+     * loads account view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/account'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-10-18
      */
     public function index()
     {
         $this->update_title('Profile');
-        $this->get_essentials();
         $this->load->view('account', array('error' => ' '));
     }
 

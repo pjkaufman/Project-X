@@ -13,6 +13,10 @@
   border-color: #999;
 }
 
+.fa.input {
+  display: table-cell !important;
+}
+
 body {
   background-color: #fff !important;
 }

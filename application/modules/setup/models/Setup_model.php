@@ -89,19 +89,21 @@ class Setup_model extends CI_Model
             PRIMARY KEY (`ID`)
           ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;");
         // insert data into the links table
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"fa fa-fw fa-home\"></i> Home', 'home', 'home', 1, 3, 0);");
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"fa fa-fw fa-wrench\"></i> Administartion<i class=\"fa fa-fw fa-caret-down\"></i>', '', '', 2, 1, 1);");
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"fa fa-fw fa-cog\"></i> Configuration', 'config', 'config', 2, 0, 1);");
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"fa fa-fw fa-info-circle\"></i> Version Info', 'versions', 'versions', 2, 0, 1);");
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"fa fa-fw fa-file\"></i> Logs', 'logs', 'logs', 2, 0, 1);");
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"glyphicon glyphicon-duplicate\"></i> Compare', 'compare', 'compare', 2, 0, 1);");
-        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`)
-        VALUES ('<i class=\"glyphicon glyphicon-list-alt\"></i> User List', 'users', 'users', 2, 0, 1);");
-    }
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"fa fa-fw fa-home\"></i> Home', 'home', 'home', 1, 3, 0, 'Home');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"fa fa-fw fa-wrench\"></i> Administartion<i class=\"fa fa-fw fa-caret-down\"></i>', '', '', 2, 1, 1, 'Administration');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"fa fa-fw fa-cog\"></i> Configuration', 'config', 'config', 2, 0, 1, 'Configuration');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"fa fa-fw fa-info-circle\"></i> Version Info', 'versions', 'versions', 2, 0, 1, 'Version Info');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"fa fa-fw fa-file\"></i> Logs', 'logs', 'logs', 2, 0, 1, 'Logs');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"glyphicon glyphicon-duplicate\"></i> Compare', 'compare', 'compare', 2, 0, 1, 'Compare');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText` )
+        VALUES ('<i class=\"glyphicon glyphicon-list-alt\"></i> User List', 'users', 'users', 2, 0, 1, 'User List');");
+        $this->db->query("INSERT INTO `links` (`linkName`, `linkJS`, `link`, `linkID`, `code`, `access`, `linkText`) 
+        VALUES ('<i class=\"fa fa-fw fa-user\"></i> Profile', 'account', 'account', 0, 4, 0, 'Profile');");  
+  }
 }

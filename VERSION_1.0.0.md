@@ -1,4 +1,6 @@
-### Updated the README and added a defualt starting point for the database.php (HEAD -> master)
+### Updated the nav bar (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated the README and added a defualt starting point for the database.php
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated the README file and added a script to allow for an easier setup.
 >Author: Peter Kaufman >Commiter: Peter Kaufman

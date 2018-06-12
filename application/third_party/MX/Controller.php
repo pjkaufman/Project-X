@@ -148,14 +148,49 @@ class MX_Controller {
         $sql = "SELECT `*` FROM `links`;";
         $results = $this->db->query($sql)->result();
         foreach( $results as $result ) {
-            $_SESSION['links'][$result->linkName] = array(
+            $_SESSION['links'][$result->linkText] = array(
                 'name'  => $result->linkName,
                 'js'    => $result->linkJS,
                 'link'  => $result->link,
                 'ID'    => (int)$result->linkID,
                 'code'  => (int)$result->code,
                 'access'=> (int)$result->access,
+                'text'  => $result->linkText
             );
         }
+    }
+
+    /**
+     * gets the link for the given link name.
+     * @author Peter Kaufman
+     * @example get_link();
+     * @since 6-10-18
+     * @version 6-10-18
+     * @return [string] is a string which is a link 
+     */
+    public function get_link() {
+        $linkName = trim($_POST['link']);
+        $link = base_url() . 'index.php/' . $_SESSION['links'][$linkName]['link'];
+        exit(json_encode($link));
+    }
+
+    /**
+     * gets the javascript link for the given link name.
+     * @author Peter Kaufman
+     * @example get_js();
+     * @since 6-10-18
+     * @version 6-10-18
+     * @return [string] is a string which is a link 
+     */
+    public function get_js() {
+        $linkName = trim($_POST['link']);
+        $js = $_SESSION['links'][$linkName]['js'];
+        $link = '';
+        if ( strcmp($js, '') != 0 ) {
+            $link = base_url() . 'assets/js/' . $js . '.js';
+        } else {
+            $link = null;
+        }
+        exit(json_encode($link));
     }
 }

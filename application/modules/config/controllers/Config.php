@@ -17,16 +17,15 @@ class Config extends MX_Controller
     }
 
     /**
-     * calls get_essentials and loads the home view.
+     * loads the home view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/config'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-10-18
      */
     public function index()
     {
         $this->update_title('Configuration');
-        $this->get_essentials();
         $this->load->view('config');
     }
 

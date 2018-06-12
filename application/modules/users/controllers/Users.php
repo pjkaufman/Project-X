@@ -15,16 +15,15 @@ class Users extends MX_Controller
     }
 
     /**
-     * calls get_essentials and loads the home view.
+     * loads the home view.
      * @author Peter Kaufman
      * @example base_url() . 'index.php/versions'
      * @since 5-31-18
-     * @version 5-31-18
+     * @version 6-10-18
      */
     public function index()
     {
         $this->update_title('Database Users');
-        $this->get_essentials();
         $this->load->view('users');
     }
 
