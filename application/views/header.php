@@ -33,7 +33,6 @@
     <!----Regular Links ---->
     <link href="<?php echo base_url() . 'assets/css/main.css'; ?>" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="<?php echo base_url() . 'assets/images/favicon.jpg'; ?>">
-    <script src="<?php echo base_url() . 'assets/js/' . $_SESSION['cmod'] . '.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/objects.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/default.js'; ?>"></script>
   </head>

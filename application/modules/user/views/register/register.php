@@ -25,7 +25,7 @@
 					<div class="form-group">
 						<label for="username">Username</label>
 						<div class="input-group">
-							<span class="input-group-addon fa fa-user" id="basic-addon1"></span>
+							<span class="input-group-addon fa fa-user input" id="basic-addon1"></span>
 							<input type="text" id="username" name="username" class="form-control" placeholder="Enter a username" aria-describedby="basic-addon1">
 					 </div>
 						<p class="help-block">At least 4 characters, letters or numbers only</p>
@@ -33,7 +33,7 @@
 					<div class="form-group">
 						<label for="email">Email</label>
 						<div class="input-group">
-							<span class="input-group-addon fa fa-envelope" id="basic-addon1"></span>
+							<span class="input-group-addon fa fa-envelope input" id="basic-addon1"></span>
 							<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" aria-describedby="basic-addon1">
 					 </div>
 						<p class="help-block">A valid email address</p>
@@ -41,7 +41,7 @@
 					<div class="form-group">
 						<label for="password">Password</label>
 						<div class="input-group">
-							<span class="input-group-addon fa fa-lock" id="basic-addon1"></span>
+							<span class="input-group-addon fa fa-lock input" id="basic-addon1"></span>
 							<input type="password" class="form-control" id="password" name="password" placeholder="Enter a password" aria-describedby="basic-addon1">
 						</div>
 						<p class="help-block">At least 6 characters</p>
@@ -50,7 +50,7 @@
 						<div class="input-group">
 						<label for="password_confirm">Confirm password</label>
 						<div class="input-group">
-							<span class="input-group-addon fa fa-lock" id="basic-addon1"></span>
+							<span class="input-group-addon fa fa-lock input" id="basic-addon1"></span>
 							<input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirm your password" aria-describedby="basic-addon1">
 						</div>
 						</div>

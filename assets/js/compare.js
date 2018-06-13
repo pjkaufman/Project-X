@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$.ajax({
 			type: "POST",
-			url: location + '/take_snapshot',
+			url: location + '/takeSnapshot',
 			success: function() {
 				$('.spinner').hide();
 				$('h4#rTitle').text("Database Snapshot was taken.");
@@ -26,7 +26,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			data: data,
-			url: location + '/db_compare',
+			url: location + '/dbCompare',
 			success: function(resp) {
 				$('.spinner').hide();
 				var todo = $.parseJSON(resp);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			data: data,
-			url: location + '/db_compare',
+			url: location + '/dbCompare',
 			success: function(resp) {
 				$('.spinner').hide();
 				var todo = $.parseJSON(resp);

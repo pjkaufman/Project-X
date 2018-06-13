@@ -17,13 +17,12 @@ class Config_model extends CI_Model {
     /**
      * updates data from the Config table of the db.
      * @author Peter Kaufman
-     * @example updateTimezone('UTC');
+     * @example update_timezone('UTC');
      * @since 8-25-17
-     * @version 5-31-18
-     * @param name the name of the setting to update
+     * @version 6-12-18
      * @param value the new value of the desired configuration setting
      */
-    public function updateTimezone($value) {
+    public function update_timezone($value) {
         $_SESSION['timezone'] = $value;
         $sql = "UPDATE `config` SET `value` = '" . $value . "' WHERE `name` = 'timezone'";
         $this->db->query($sql);

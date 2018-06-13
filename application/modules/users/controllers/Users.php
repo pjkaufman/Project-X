@@ -10,31 +10,32 @@ class Users extends MX_Controller
     {
         parent::__construct();
         $this->load->model('users_model');
-        $this->set_module($this);
-        $this->logged_in();
+        $this->loggedIn();
+        $this->updateView('users');
     }
 
     /**
-     * loads the home view.
+     * loads the home view and essentials
      * @author Peter Kaufman
      * @example base_url() . 'index.php/versions'
      * @since 5-31-18
-     * @version 6-10-18
+     * @version 6-12-18
      */
     public function index()
     {
-        $this->update_title('Database Users');
-        $this->load->view('users');
+        $this->updateTitle('Database Users');
+        $this->getEssentials();
+        $this->loadView();
     }
 
     /**
-     * calls to get_versions to get version data.
+     * calls to get_users to get the list.
      * @author Peter Kaufman
-     * @example base_url() . 'index.php/get_user_data'
+     * @example base_url() . 'index.php/getUserData'
      * @since 5-31-18
-     * @version 5-31-18
+     * @version 6-12-18
      */
-    public function get_user_data()
+    public function getUserData()
     {
         exit(json_encode(['data' => $this->users_model->get_users()]));
     }

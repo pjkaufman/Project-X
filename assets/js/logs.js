@@ -7,16 +7,16 @@ $(document).ready(function() {
 		'end': end_date,
 	};
 	new DatePicker(start_date, end_date, 0);
-	$.post(location + '/update_sql_data', data);
-	Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false);
+	$.post(location + '/updateSqlData', data);
+	Table.init('logs', location + '/getData', ['Username', 'Date', 'Login', 'Logout'], false);
 	$('button#apply').on('click', function() {
 		data = {
 			'start': window.DatePicker.daterange.start,
 			'end': window.DatePicker.daterange.end,
 		};
-		$.post(location + '/update_sql_data', data);
+		$.post(location + '/updateSqlData', data);
 		clearTable();
-		Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false);
+		Table.init('logs', location + '/getData', ['Username', 'Date', 'Login', 'Logout'], false);
 	});
 	$('button#clear').on('click', function() {
 		$('div#drp').empty();
@@ -25,9 +25,9 @@ $(document).ready(function() {
 			'start': window.DatePicker.daterange.start,
 			'end': window.DatePicker.daterange.end,
 		};
-		$.post(location + '/update_sql_data', data);
+		$.post(location + '/updateSqlData', data);
 		clearTable();
-		Table.init('logs', location + '/get_data', ['Username', 'Date', 'Login', 'Logout'], false);
+		Table.init('logs', location + '/getData', ['Username', 'Date', 'Login', 'Logout'], false);
 	});
 });
 

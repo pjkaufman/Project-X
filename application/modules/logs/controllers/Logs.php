@@ -10,31 +10,32 @@ class Logs extends MX_Controller
     {
         parent::__construct();
         $this->load->model('logs_model');
-        $this->set_module($this);
-        $this->logged_in();
+        $this->loggedIn();
+        $this->updateView('logs');
     }
 
     /**
-      * loads logs view.
+      * loads logs view and essentials
       * @author Peter Kaufman
       * @example base_url() . 'index.php/logs'
       * @since 8-25-17
-      * @version 6-10-18
+      * @version 6-12-18
       */
     public function index()
     {
-        $this->update_title('Logs');
-        $this->load->view('logs');
+        $this->updateTitle('Logs');
+        $this->getEssentials();
+        $this->loadView();
     }
 
     /**
       * gets the data desired
       * @author Peter Kaufman
-      * @example base_url() . 'index.php/logs/get_data'
+      * @example base_url() . 'index.php/logs/getData'
       * @since 8-25-17
-      * @version 5-31-18
+      * @version 6-12-18
       */
-    public function get_data()
+    public function getData()
     {
         $data = $this->logs_model->get_logs();
         exit(json_encode(['data' => $data]));
@@ -43,11 +44,11 @@ class Logs extends MX_Controller
     /**
       * updates the avialable sql data.
       * @author Peter Kaufman
-      * @example base_url() . 'index.php/logs/update_sql_data'
+      * @example base_url() . 'index.php/logs/updateSqlData'
       * @since 8-25-17
-      * @version 5-31-18
+      * @version 6-12-18
       */
-    public function update_sql_data()
+    public function updateSqlData()
     {
         $start = new DateTime($_POST['start']);
         $start = $start->format('Y-m-d');

@@ -11,8 +11,7 @@ class User extends MX_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
-        $this->set_module($this);
-        $this->default_time_zone();
+        $this->defaultTimeZone();
     }
 
     /**
@@ -20,12 +19,12 @@ class User extends MX_Controller
      * @author Hedii & Peter Kaufman
      * @example base_url() . 'index.php/user/register'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      */
     public function register()
     {
         // create the data object
-        $this->update_title('Register');
+        $this->updateTitle('Register');
         $data = new stdClass();
         // set validation rules
         $this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_numeric|min_length[4]|is_unique[users.username]', array('is_unique' => 'This username already exists. Please choose another one.'));
@@ -61,12 +60,12 @@ class User extends MX_Controller
      * @author Hedii & Peter Kaufman
      * @example base_url() . 'index.php/user/login'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      */
     public function login()
     {
         // create the data object
-        $this->update_title('Login');
+        $this->updateTitle('Login');
         $data = new stdClass();
         // set validation rules
         $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric');

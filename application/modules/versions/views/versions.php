@@ -19,6 +19,7 @@
           </div>
         </div>
       </div>
+      <script src="<?php echo base_url() . 'assets/js/versions.js' ?>"></script>
     </div>
   </body>
 </html>

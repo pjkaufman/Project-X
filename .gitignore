@@ -17,3 +17,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
 application/config/database.php
+
+assets/**
+!assets/default.jpg
+!assets/favicon.jpg

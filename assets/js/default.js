@@ -4,7 +4,7 @@ $(document).ready(function() {
 	title = title.replace('Project X - ', '');
 	if (title != 'Register' && title != 'Login') {
 		$.ajax({
-			url: location + '/get_timezone',
+			url: location + '/getTimezone',
 			success: function(resp) {
 				new Clock(1000, resp);
 			},

@@ -7,6 +7,7 @@
         <div class="col-sm-3"></div>
       </div>
       <div id="table" style="width:100%;"></div>
+      <script src="<?php echo base_url() . 'assets/js/logs.js' ?>"></script>
     </div>
   </body>
 </html>

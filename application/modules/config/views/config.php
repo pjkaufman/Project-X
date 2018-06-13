@@ -23,6 +23,7 @@
           </div>
         </div>
       </div>
+      <script src="<?php echo base_url() . 'assets/js/config.js' ?>"></script>
     </div>
   </body>
 </html>

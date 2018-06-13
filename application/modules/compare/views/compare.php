@@ -17,7 +17,7 @@
 <div class="reset" style="display: inline-block">
 <button class="glyphicon glyphicon-refresh .btn-default"> Reset </button>
 </div>
-<div class="spinner" style="display: inline-block>
+<div class="spinner" style="display: inline-block">
 <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
 </div>
   <div class="result">
@@ -25,6 +25,7 @@
     <pre style='padding: 20px; background-color: #FFFAF0'></pre>
   </div>
     </div>
+    <script src="<?php echo base_url() . 'assets/js/compare.js' ?>"></script>
   </div>
   </body>
 </html>

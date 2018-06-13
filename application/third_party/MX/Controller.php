@@ -59,38 +59,37 @@ class MX_Controller {
         return CI::$APP->$class;
     }
 
+     /**
+     * updates the view name
+     * @author Peter Kaufman
+     * @example base_url() . any_module/updateView
+     * @since 8-25-17
+     * @version 6-12-18
+     **/
+    public function updateView($view) {
+        $this->view = $view;
+    }
+
     /**
      * loads the header and nav-bar files.
      * @author Peter Kaufman
-     * @example get_essentials();
+     * @example base_url() . any_module/getEssentials
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      **/
-    public function get_essentials() {
+    public function getEssentials() {
         $this->load->view('header');
         $this->load->view('nav-bar');
     }
 
     /**
-     * sets the name of the current module in the SESSION global variable.
+     * checks to make sure the user is logged in, if not, the user is redirected to the login page.
      * @author Peter Kaufman
-     * @example set_module($controller_object);
+     * @example base_url() . any_module/loggedIn
      * @since 8-25-17
-     * @version 5-31-18
-     * @param $class is a MX_Controller oci_fetch_object
+     * @version 6-12-18
      */
-    public function set_module($class) {
-        $_SESSION['cmod'] = strtolower(get_class($class));
-    }
-
-    /**
-     * to make sure the user is logged in, if not, the user is redirected to the login page.
-     * @author Peter Kaufman
-     * @example logged_in();
-     * @since 8-25-17
-     * @version 5-31-18
-     */
-    public function logged_in() {
+    public function loggedIn() {
         if (!(isset($_SESSION['username']))) {
             header('Location:' . base_url() . 'index.php/user/login');
         }
@@ -99,22 +98,22 @@ class MX_Controller {
     /**
      * sets the title for the current page in the SESSION global variable.
      * @author Peter Kaufman
-     * @example update_title('Home');
+     * @example base_url() . any_module/updateTitle
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      */
-    public function update_title($title) {
+    public function updateTitle($title) {
         $_SESSION['title'] = 'Project X - ' . $title;
     }
 
     /**
      * gets the default time zone to use for the modules.
      * @author Peter Kaufman
-     * @example default_time_zone();
+     * @example base_url() . any_module/defaultTimeZone();
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      */
-    public function default_time_zone() {
+    public function defaultTimeZone() {
         $sql = "SELECT `value` FROM `config` WHERE `name` = 'timezone';";
         $results = $this->db->query($sql)->result();
         if (!empty($results)) {
@@ -128,22 +127,22 @@ class MX_Controller {
     /**
      * gets the timezone to use.
      * @author Peter Kaufman
-     * @example get_timezone();
+     * @example base_url() . any_module/getTimezone
      * @since 8-25-17
-     * @version 5-31-18 
+     * @version 6-12-18 
      */
-    public function get_timezone() {
+    public function getTimezone() {
         exit($_SESSION['timezone']);
     }
 
     /**
      * gets the link structure for the navigation page.
      * @author Peter Kaufman
-     * @example get_links();
+     * @example base_url() . any_module/getLinks
      * @since 6-9-18
-     * @version 6-9-18 
+     * @version 6-12-18 
      */
-    public function get_links() {
+    public function getLinks() {
         $_SESSION['links'] = array();
         $sql = "SELECT `*` FROM `links`;";
         $results = $this->db->query($sql)->result();
@@ -163,34 +162,27 @@ class MX_Controller {
     /**
      * gets the link for the given link name.
      * @author Peter Kaufman
-     * @example get_link();
+     * @example base_url() . any_module/getLink
      * @since 6-10-18
-     * @version 6-10-18
+     * @version 6-12-18
      * @return [string] is a string which is a link 
      */
-    public function get_link() {
+    public function getLink() {
         $linkName = trim($_POST['link']);
         $link = base_url() . 'index.php/' . $_SESSION['links'][$linkName]['link'];
         exit(json_encode($link));
     }
 
-    /**
-     * gets the javascript link for the given link name.
+     /**
+     * loads the view that has been previosly specified
      * @author Peter Kaufman
-     * @example get_js();
-     * @since 6-10-18
-     * @version 6-10-18
-     * @return [string] is a string which is a link 
-     */
-    public function get_js() {
-        $linkName = trim($_POST['link']);
-        $js = $_SESSION['links'][$linkName]['js'];
-        $link = '';
-        if ( strcmp($js, '') != 0 ) {
-            $link = base_url() . 'assets/js/' . $js . '.js';
-        } else {
-            $link = null;
+     * @example base_url() . any_module/loadView
+     * @since 6-12-17
+     * @version 6-12-18
+     **/
+    public function loadView() {
+        if (strcmp($this->view, '') != 0) {
+            $this->load->view($this->view);
         }
-        exit(json_encode($link));
     }
 }

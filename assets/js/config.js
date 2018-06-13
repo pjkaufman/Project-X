@@ -3,14 +3,14 @@ $(document).ready(function() {
 	var timezone;
 	$.ajax({
 		type: "POST",
-		url: location + '/get_timezone',
+		url: location + '/getTimezone',
 		success: function(resp) {
 			timezone = resp;
 		},
 	}).then(function() {
 		$.ajax({
 			type: "POST",
-			url: location + '/time_zones',
+			url: location + '/timeZones',
 			dataType: 'json',
 			success: function(resp) {
 				var markup;
@@ -31,7 +31,7 @@ $(document).ready(function() {
 			$.ajax({
 				type: "POST",
 				data: time_zone,
-				url: location + '/update_timezone',
+				url: location + '/updateTimezone',
 				success: function() {
 					clearInterval(clockInterval);
 					$('div#clock').empty();

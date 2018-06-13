@@ -1,4 +1,6 @@
-### Updated the nav bar (HEAD -> master)
+### Updated the nav bar and how to get views. Added js files to the views and formatted the function names (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated the nav bar
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated the README and added a defualt starting point for the database.php
 >Author: Peter Kaufman >Commiter: Peter Kaufman

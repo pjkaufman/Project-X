@@ -2,7 +2,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type: "POST",
-		url: location + '/get_version_data',
+		url: location + '/getVersionData',
 		dataType: 'json',
 		success: function(resp) {
 			var markup;
@@ -128,7 +128,7 @@ function updateItem(name, version) {
 		'name': name,
 		'version': version,
 	};
-	$.post(location + '/update_version', data);
+	$.post(location + '/updateVersion', data);
 }
 
 /**
@@ -155,6 +155,6 @@ function removeModal() {
  * @return {null} void
  */
 function updateTable(data) {
-	$.post(location + '/update_version_table', data);
+	$.post(location + '/updateVersionTable', data);
 	removeModal();
 }

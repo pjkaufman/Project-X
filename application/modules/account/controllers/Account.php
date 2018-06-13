@@ -11,51 +11,57 @@ class Account extends MX_Controller
     {
         parent::__construct();
         $this->load->model('account_model');
-        $this->set_module($this);
-        $this->logged_in();
+        $this->loggedIn();
+        $this->updateView('account');
     }
 
     /**
-     * loads account view.
+     * loads account view and essentials
      * @author Peter Kaufman
      * @example base_url() . 'index.php/account'
      * @since 8-25-17
-     * @version 6-10-18
+     * @version 6-12-18
      */
     public function index()
     {
-        $this->update_title('Profile');
-        $this->load->view('account', array('error' => ' '));
+        $this->updateTitle('Profile');
+        $this->getEssentials();
+        $this->loadView();
     }
 
     /**
      * uploads a photo to assets/images/ and sets the image as the profile image of the user.
-     * @author Peter Kaufman
-     * @example base_url() . 'index.php/account/do_upload'
+     * @author Peter Kaufman & Yogesh Singh
+     * @example base_url() . 'index.php/account/doUpload'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
+     * @see http://makitweb.com/how-to-upload-image-file-using-ajax-and-jquery/
      */
-    public function do_upload()
+    public function doUpload()
     {
-        $config['upload_path'] = 'assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 1000;
-        $config['max_width'] = 1024;
-        $config['max_height'] = 768;
+        /* Getting file name */
+        $filename = $_FILES['file']['name'];
+        /* Location */
+        $location = "assets/images/" . $filename;
+        $uploadOk = 1;
+        $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
+        // Check image format
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+            $uploadOk = 0;
+        }
 
-        $this->load->library('upload', $config);
-        // determine if an error occurred or not
-        if (!$this->upload->do_upload('userfile')) {
-            $error = array('error' => $this->upload->display_errors());
-            $this->get_essentials();
-            $this->load->view('account', $error);
-        } else {
-            $upload_data = $this->upload->data();
-            $file_name = array('avatar' => $upload_data['file_name']);
-            $this->account_model->update_avatar($file_name);
-            $data = array('upload_data' => $this->upload->data());
-            $this->get_essentials();
-            $this->load->view('account', $data);
+        if($uploadOk == 0){
+            exit(json_encode(array('error' => 'The file is not of the right file type.')));
+        }else{
+            /* Upload file */
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
+                $file_name = array('avatar' => $filename);
+                $this->account_model->update_avatar($file_name);
+                exit(json_encode(array('error' => null)));
+            } else {
+                exit(json_encode(array('error' => 'An error occurred while uploading the image.')));
+            }
         }
     }
 }

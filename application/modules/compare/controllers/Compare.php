@@ -13,8 +13,7 @@ class Compare extends MX_Controller
     {
         parent::__construct();
         $this->load->model('compare_model');
-        $this->set_module($this);
-        $this->logged_in();
+        $this->loggedIn();
         $this->DB1 = $this->load->database('dev', true); // load the source/development database
         $this->DB2 = $this->load->database('live', true); // load the destination/live database
         $_SESSION['dev'] = array();
@@ -28,31 +27,33 @@ class Compare extends MX_Controller
         $_SESSION['dev']['views'] = array();
         $_SESSION['live']['views'] = array();
         $_SESSION['compare'] = 2;
+        $this->updateView('compare');
     }
 
     /**
-     * sets up the view for the user
+     * loads the compare view and essentials
      * @author Peter Kaufman
-     * @example base_url() . 'index.php/db_compare'
+     * @example base_url() . 'index.php/compare'
      * @since 8-25-17
-     * @version 6-10-18
+     * @version 6-12-18
      */
     public function index()
     {
-        $this->update_title('Compare');
-        $this->load->view('compare');
+        $this->updateTitle('Compare');
+        $this->getEssentials();
+        $this->loadView();
     }
 
     /**
      * takes a database snapshot of the live database connection and saves it to a file
      * @author Peter Kaufman
-     * @example base_url() . 'index.php/db_compare/take_snapshot'
+     * @example base_url() . 'index.php/compare/takeSnapshot'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      */
-    public function take_snapshot()
+    public function takeSnapshot()
     {
-        $this->set_dev('false');
+        $this->setDev('false');
         $_SESSION['dev']['tables_list'] = $this->compare_model->table_list($this->DB1);
         $this->compare_model->fill_out_tables($_SESSION['dev'], $this->DB1);
         $this->compare_model->get_views($this->DB1, $_SESSION['dev']['views']);
@@ -62,14 +63,14 @@ class Compare extends MX_Controller
     /**
      * compares two databases and exits with the SQL statements that are to be returned
      * @author Peter Kaufman
-     * @example base_url() . 'index.php/db_compare/db_compare'
+     * @example base_url() . 'index.php/compare/dbCompare'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      */
-    public function db_compare()
+    public function dbCompare()
     {
         if (array_key_exists('num', $this->input->post())) {
-            $this->set_dev($this->input->post()['num']);
+            $this->setDev($this->input->post()['num']);
         }
         /*
          * This will become a list of SQL Commands to run on the Live database to bring it up to date
@@ -93,8 +94,8 @@ class Compare extends MX_Controller
             $this->compare_model->fill_out_tables($_SESSION['dev'], $this->DB1);
         }
         $this->compare_model->fill_out_tables($_SESSION['live'], $this->DB2);
-        $this->update_array($tables_to_create, $tables_to_create, $tables_to_create);
-        $this->update_array($tables_to_drop, $tables_to_drop, $tables_to_drop);
+        $this->updateArray($tables_to_create, $tables_to_create, $tables_to_create);
+        $this->updateArray($tables_to_drop, $tables_to_drop, $tables_to_drop);
         /**
          * Create/Drop any tables that are not in the Live database.
          */
@@ -147,12 +148,12 @@ class Compare extends MX_Controller
     /**
      * sets the dev database based on an integer.
      * @author Peter Kaufman
-     * @example base_url() . 'index.php/db_compare/set_dev'
+     * @example base_url() . 'index.php/compare/setDev'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      * @param type determines whether to get a dbSnapshot or load the dev database connection
      */
-    public function set_dev($type)
+    private function setDev($type)
     {
         if ($type == 'true' && file_exists('dbsnapshot.json')) {
             $this->compare_model->get_db_snapshot();
@@ -163,12 +164,12 @@ class Compare extends MX_Controller
     /**
      * turns an array into an associative array
      * @author Peter Kaufman 
-     * @example base_url() . 'index.php/db_compare/update_array'
+     * @example base_url() . 'index.php/db_compare/updateArray'
      * @since 8-25-17
-     * @version 5-31-18
+     * @version 6-12-18
      * @param array is the array to be modified
      */
-    public function update_array(&$array)
+    private function updateArray(&$array)
     {
         $temp = array();
 
