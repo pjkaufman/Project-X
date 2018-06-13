@@ -1,4 +1,6 @@
-### Updated gitignore. (HEAD -> master)
+### Updated gitignore (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated gitignore.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated the js documentation.
 >Author: Peter Kaufman >Commiter: Peter Kaufman

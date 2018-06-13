@@ -21,3 +21,5 @@ application/config/database.php
 assets/**
 !assets/default.jpg
 !assets/favicon.jpg
+
+.editorconfig
