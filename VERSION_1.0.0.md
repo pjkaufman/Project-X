@@ -1,4 +1,6 @@
-### Updated the nav bar and how to get views. Added js files to the views and formatted the function names (HEAD -> master)
+### Updated the js documentation. (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated the nav bar and how to get views. Added js files to the views and formatted the function names
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated the nav bar
 >Author: Peter Kaufman >Commiter: Peter Kaufman

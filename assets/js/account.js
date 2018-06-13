@@ -45,6 +45,12 @@ $(document).ready(function() {
 	});
 });
 
+/**
+ * @function result
+ * @description displays the appropriate message to the user
+ * @param {string} rs rs is the test to display to the user
+ * @returns void
+ */
 function result( rs ) {
 	$("#fileopen").val("");
 	$('#result').empty();
