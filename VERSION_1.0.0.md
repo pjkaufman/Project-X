@@ -1,4 +1,6 @@
-### Updated gitignore (HEAD -> master)
+### updated login form (HEAD -> master)
+>Author: Peter Kaufman >Commiter: Peter Kaufman
+### Updated gitignore
 >Author: Peter Kaufman >Commiter: Peter Kaufman
 ### Updated gitignore.
 >Author: Peter Kaufman >Commiter: Peter Kaufman
