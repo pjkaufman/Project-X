@@ -1,0 +1,24 @@
+version: '3'
+services:
+  apache:
+    image: php:7.0-apache
+    hostname: apache
+    ports:
+    - "80:80" # normal php port for trafic and functionality
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www
+    volumes:
+      - ./app:/var/www
+  
+  mysql:
+    image: mysql:8.0
+    hostname: mysql
+    ports:
+      - "3306:3306" # mysql connection port
+    environment:
+      MYSQL_USER_FILE: var/lib/mysql-user
+      MYSQL_PASSWORD_FILE: var/lib/mysql-user-p
+      MYSQL_DATABASE_FILE: var/lib/mysql-db
+      MYSQL_ROOT_PASSWORD_FILE: var/lib/mysql-root-p
+    volumes:
+      - ./data:/var/lib/

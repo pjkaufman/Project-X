@@ -1,0 +1,88 @@
+Attaching to project-x_mysql_1
+[36mmysql_1   |[0m Initializing database
+[36mmysql_1   |[0m 2018-06-17T01:25:03.967345Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+[36mmysql_1   |[0m 2018-06-17T01:25:03.968356Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.11) initializing of server in progress as process 33
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m 2018-06-17T01:25:06.175961Z 5 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416780Z 5 [Warning] [MY-010315] [Server] 'user' entry 'mysql.infoschema@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416838Z 5 [Warning] [MY-010315] [Server] 'user' entry 'mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416856Z 5 [Warning] [MY-010315] [Server] 'user' entry 'mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416871Z 5 [Warning] [MY-010315] [Server] 'user' entry 'root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416902Z 5 [Warning] [MY-010323] [Server] 'db' entry 'performance_schema mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416914Z 5 [Warning] [MY-010323] [Server] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.416949Z 5 [Warning] [MY-010311] [Server] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.417140Z 5 [Warning] [MY-010330] [Server] 'tables_priv' entry 'user mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.417174Z 5 [Warning] [MY-010330] [Server] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:07.864093Z 0 [System] [MY-013170] [Server] /usr/sbin/mysqld (mysqld 8.0.11) initializing of server has completed
+[36mmysql_1   |[0m Database initialized
+[36mmysql_1   |[0m MySQL init process in progress...
+[36mmysql_1   |[0m 2018-06-17T01:25:09.570213Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+[36mmysql_1   |[0m 2018-06-17T01:25:09.571178Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.11) starting as process 84
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m 2018-06-17T01:25:10.094403Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.097079Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108512Z 0 [Warning] [MY-010315] [Server] 'user' entry 'mysql.infoschema@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108583Z 0 [Warning] [MY-010315] [Server] 'user' entry 'mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108602Z 0 [Warning] [MY-010315] [Server] 'user' entry 'mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108617Z 0 [Warning] [MY-010315] [Server] 'user' entry 'root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108869Z 0 [Warning] [MY-010323] [Server] 'db' entry 'performance_schema mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108904Z 0 [Warning] [MY-010323] [Server] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.108924Z 0 [Warning] [MY-010311] [Server] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.112061Z 0 [Warning] [MY-010330] [Server] 'tables_priv' entry 'user mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.112108Z 0 [Warning] [MY-010330] [Server] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:10.120166Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+[36mmysql_1   |[0m Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+[36mmysql_1   |[0m Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+[36mmysql_1   |[0m Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+[36mmysql_1   |[0m Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215143Z 10 [Warning] [MY-010315] [Server] 'user' entry 'mysql.infoschema@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215207Z 10 [Warning] [MY-010315] [Server] 'user' entry 'mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215230Z 10 [Warning] [MY-010315] [Server] 'user' entry 'mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215245Z 10 [Warning] [MY-010315] [Server] 'user' entry 'root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215438Z 10 [Warning] [MY-010323] [Server] 'db' entry 'performance_schema mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215477Z 10 [Warning] [MY-010323] [Server] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215500Z 10 [Warning] [MY-010311] [Server] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215747Z 10 [Warning] [MY-010330] [Server] 'tables_priv' entry 'user mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.215784Z 10 [Warning] [MY-010330] [Server] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m mysql: [Warning] Using a password on the command line interface can be insecure.
+[36mmysql_1   |[0m mysql: [Warning] Using a password on the command line interface can be insecure.
+[36mmysql_1   |[0m mysql: [Warning] Using a password on the command line interface can be insecure.
+[36mmysql_1   |[0m mysql: [Warning] Using a password on the command line interface can be insecure.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.269702Z 14 [Warning] [MY-010315] [Server] 'user' entry 'mysql.infoschema@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.269752Z 14 [Warning] [MY-010315] [Server] 'user' entry 'mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.269771Z 14 [Warning] [MY-010315] [Server] 'user' entry 'mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.269912Z 14 [Warning] [MY-010315] [Server] 'user' entry 'root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.270026Z 14 [Warning] [MY-010323] [Server] 'db' entry 'performance_schema mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.270058Z 14 [Warning] [MY-010323] [Server] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.270078Z 14 [Warning] [MY-010311] [Server] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.270321Z 14 [Warning] [MY-010330] [Server] 'tables_priv' entry 'user mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:13.270357Z 14 [Warning] [MY-010330] [Server] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 
+[36mmysql_1   |[0m 2018-06-17T01:25:15.410301Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.11)  MySQL Community Server - GPL.
+[36mmysql_1   |[0m 
+[36mmysql_1   |[0m MySQL init process done. Ready for start up.
+[36mmysql_1   |[0m 
+[36mmysql_1   |[0m 2018-06-17T01:25:15.814322Z 0 [Warning] [MY-011070] [Server] 'Disabling symbolic links using --skip-symbolic-links (or equivalent) is the default. Consider not using this option as it' is deprecated and will be removed in a future release.
+[36mmysql_1   |[0m 2018-06-17T01:25:15.815269Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.11) starting as process 1
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m mbind: Operation not permitted
+[36mmysql_1   |[0m 2018-06-17T01:25:16.165910Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.168584Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176556Z 0 [Warning] [MY-010315] [Server] 'user' entry 'mysql.infoschema@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176628Z 0 [Warning] [MY-010315] [Server] 'user' entry 'mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176645Z 0 [Warning] [MY-010315] [Server] 'user' entry 'mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176661Z 0 [Warning] [MY-010315] [Server] 'user' entry 'root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176689Z 0 [Warning] [MY-010323] [Server] 'db' entry 'performance_schema mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176700Z 0 [Warning] [MY-010323] [Server] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.176749Z 0 [Warning] [MY-010311] [Server] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.180347Z 0 [Warning] [MY-010330] [Server] 'tables_priv' entry 'user mysql.session@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.180414Z 0 [Warning] [MY-010330] [Server] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+[36mmysql_1   |[0m 2018-06-17T01:25:16.187447Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
