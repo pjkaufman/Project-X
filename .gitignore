@@ -1,12 +1,12 @@
 .DS_Store
 
-application/cache/*
-!application/cache/index.html
-!application/cache/.htaccess
+app/application/cache/*
+!app/application/cache/index.html
+!app/application/cache/.htaccess
 
-application/logs/*
-!application/logs/index.html
-!application/logs/.htaccess
+app/application/logs/*
+!app/application/logs/index.html
+!app/application/logs/.htaccess
 
 composer.lock
 
@@ -16,10 +16,14 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
-application/config/database.php
+app/application/config/database.php
 
-assets/**
-!assets/default.jpg
-!assets/favicon.jpg
+app/assets/**
+!app/assets/default.jpg
+!app/assets/favicon.jpg
 
 .editorconfig
+
+data/mysql/*
+data/*
+!data/mysql/.gitkeep

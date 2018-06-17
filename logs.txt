@@ -1,5 +1,0 @@
-Attaching to project-x_apache_1
-[36mapache_1      |[0m AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.3. Set the 'ServerName' directive globally to suppress this message
-[36mapache_1      |[0m AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.3. Set the 'ServerName' directive globally to suppress this message
-[36mapache_1      |[0m [Sun Jun 17 02:09:56.237502 2018] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.0.30 configured -- resuming normal operations
-[36mapache_1      |[0m [Sun Jun 17 02:09:56.237633 2018] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
