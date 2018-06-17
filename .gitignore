@@ -25,5 +25,4 @@ app/assets/**
 .editorconfig
 
 data/mysql/*
-data/*
 !data/mysql/.gitkeep

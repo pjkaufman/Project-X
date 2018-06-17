@@ -3,6 +3,8 @@ services:
   apache:
     image: php:7.0-apache
     hostname: apache
+    depends_on:
+      - mysql
     ports:
     - "80:80" # normal php port for trafic and functionality
     volumes:
@@ -14,21 +16,10 @@ services:
     ports:
       - "3306:3306" # mysql connection port
     environment:
-      MYSQL_USER_FILE: var/lib/mysql-user
-      MYSQL_PASSWORD_FILE: var/lib/mysql-user-p
-      MYSQL_DATABASE_FILE: var/lib/mysql-db
-      MYSQL_ROOT_PASSWORD_FILE: var/lib/mysql-root-p
+      MYSQL_USER: validator
+      MYSQL_PASSWORD: rotadilav
+      MYSQL_DATABASE: Project-X
+      MYSQL_ROOT_PASSWORD: root22
     volumes:
-      - ./data:/var/lib/
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    restart: always
-    links:
-      - mysql
-    ports:
-      - "8183:80" # phpmyadmin login page
-    environment:
-      PMA_USER: root22
-      PMA_PASSWORD: root22
-      PMA_ARBITRARY: 1
+      - ./data/mysql:/var/lib/mysql
+      - ./data/mysqlStartup:/docker-entrypoint-initdb.d
