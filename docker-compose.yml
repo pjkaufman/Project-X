@@ -5,10 +5,8 @@ services:
     hostname: apache
     ports:
     - "80:80" # normal php port for trafic and functionality
-    environment:
-      APACHE_DOCUMENT_ROOT: /var/www
     volumes:
-      - ./app:/var/www
+      - ./app:/var/www/html
   
   mysql:
     image: mysql:8.0
@@ -22,3 +20,15 @@ services:
       MYSQL_ROOT_PASSWORD_FILE: var/lib/mysql-root-p
     volumes:
       - ./data:/var/lib/
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    links:
+      - mysql
+    ports:
+      - "8183:80" # phpmyadmin login page
+    environment:
+      PMA_USER: root22
+      PMA_PASSWORD: root22
+      PMA_ARBITRARY: 1
