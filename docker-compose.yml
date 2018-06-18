@@ -1,14 +1,16 @@
 version: '3'
 services:
   apache:
-    image: php:7.0-apache
+    build: . 
     hostname: apache
     depends_on:
+      - mysql
+    links:
       - mysql
     ports:
     - "80:80" # normal php port for trafic and functionality
     volumes:
-      - ./app:/var/www/html
+      - ./www:/var/www/html
   
   mysql:
     image: mysql:8.0
